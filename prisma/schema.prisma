@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo de User
+model User {
+  id             String  @id @default(uuid())
+  name           String
+  identification String  @unique
+  email          String  @unique
+  password       String
+  address        String?
+  city           String?
+  phone          String?
+  profilePicture String?
+
+  // Relación con Odontólogo
+  dentist Dentist?
+
+  //Relación con Clínicas Odontológicas creadas por el user
+  clinics  Clinic[]
+  createAt DateTime @default(now())
+  updateAt DateTime
+}
+
+// Modelo de Odontólogo
+model Dentist {
+  id        String @id @default(uuid())
+  name      String
+  specialty String
+
+  // Relación con User
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @unique
+
+  // Relación con Clínicas Odontológicas
+  clinics  Clinic[]
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
+
+// Modelo de Clínica Odontológica
+model Clinic {
+  id             String @id @default(uuid())
+  name           String
+  address        String
+  phone          String
+  specialty      String
+  identification String @unique
+
+  // Relación con User creator de la clínica
+  creator   User     @relation(fields: [creatorId], references: [id])
+  creatorId String
+  Dentist   Dentist? @relation(fields: [dentistId], references: [id])
+  dentistId String?
+  createAt  DateTime @default(now())
+  updateAt  DateTime @updatedAt
+}
+
+// Modelo de Cupon
+model Ticket {
+  id         String   @id @default(uuid())
+  code       String
+  discount   Float
+  expiration DateTime
+  createAt   DateTime @default(now())
+  updateAt   DateTime @updatedAt
+}
+
+// Modelo de Producto
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  brand       String
+  category    String
+  description String
+  price       Float
+  quantity    Int
+  image       String
+  createAt    DateTime @default(now())
+  updateAt    DateTime @updatedAt
+}
