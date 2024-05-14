@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { productService } from "@/pages/lib/services/userService";
-import { messageCRUD } from "@/pages/lib/message";
+import { dataService } from "@/lib/services/dataService";
+import { messageCRUD } from "@/lib/message";
 
 export default async function handler(
 	req: NextApiRequest,
@@ -12,7 +12,7 @@ export default async function handler(
 	}
 	try {
 		const {id} = req.body;
-		const getProduct = await productService.destroy(id);
+		await dataService.destroy(id);
 		return res.status(204).end();
 	} catch (error) {
 		return res.status(500).json({ error: messageCRUD.error.delete });

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { productService } from "@/pages/lib/services/userService";
-import { messageCRUD } from "@/pages/lib/message";
+import { dataService } from "@/lib/services/dataService";
+import { messageCRUD } from "@/lib/message";
 
 export default async function handler(
 	req: NextApiRequest,
@@ -11,7 +11,10 @@ export default async function handler(
 		return res.status(405).end(`Metodo ${req.method} no permitido`);
 	}
 	try {
-		const products = await productService.getAll();
+		const products = await dataService.getAll();
+		if (products.length === 0) {
+			return res.status(404).json({ error: messageCRUD.error.read });
+		}
 		const data = {
 			message: messageCRUD.success.read,
 			data: products,

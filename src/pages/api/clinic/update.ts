@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { productService } from "@/pages/lib/services/userService";
+import { dataService } from "@/lib/services/dataService";
 import { Product } from "@prisma/client";
-import { messageCRUD } from "@/pages/lib/message";
+import { messageCRUD } from "@/lib/message";
 
 export default async function handler(
 	req: NextApiRequest,
@@ -14,7 +14,7 @@ export default async function handler(
   try {
     const { id }:any = req.query;
 		const dataProduct: Omit<Product, "id"> = req.body;
-		const updateProduct = await productService.update(id, dataProduct);
+		const updateProduct = await dataService.update(id, dataProduct);
 		const data = {
 			message: messageCRUD.success.read,
 			data: updateProduct,

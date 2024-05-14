@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { productService } from "@/pages/lib/services/userService";
-import { messageCRUD } from "@/pages/lib/message";
+import { dataService } from "@/lib/services/dataService";
+import { messageCRUD } from "@/lib/message";
 
 export default async function handler(
 	req: NextApiRequest,
@@ -12,7 +12,10 @@ export default async function handler(
 	}
 	try {
     const {id}: any = req.query
-		const products = await productService.getId(id);
+		const products = await dataService.getId(id);
+		if (!products) {
+			return res.status(404).json({ error: messageCRUD.error.read });
+		}
 		const data = {
 			message: messageCRUD.success.read,
 			data: products,
