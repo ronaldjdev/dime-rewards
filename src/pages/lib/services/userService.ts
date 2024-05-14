@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Product } from "@prisma/client";
 
 // Crear una instancia del cliente Prisma
 const prisma = new PrismaClient();
@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 // Definir el servicio de productos
 export const productService = {
  
-	async getAll() {
+	async getAll(): Promise<Product[]> {
 		try {
 			const productos = await prisma.product.findMany();
 			return productos;
@@ -16,22 +16,22 @@ export const productService = {
 	},
 
 	// Método para obtener un product por su ID
-	async getId(id) {
+	async getId(id: string): Promise<Product | null> {
 		try {
 			const product = await prisma.product.findUnique({
 				where: { id },
 			});
 			return product;
 		} catch (error) {
-			throw new Error("Error al obtener el product");
+			throw new Error("Error al obtener el producto");
 		}
 	},
 
 	// Método para crear un nuevo product
-	async create(datosProducto) {
+	async create(data: Omit<Product, "id">): Promise<Product> {
 		try {
 			const product = await prisma.product.create({
-				data: datosProducto,
+				data,
 			});
 			return product;
 		} catch (error) {
@@ -40,11 +40,11 @@ export const productService = {
 	},
 
 	// Método para actualizar un product
-	async update(id, nuevosDatosProducto) {
+	async update(id: string, data: Omit<Product, "id">): Promise<Product> {
 		try {
 			const product = await prisma.product.update({
 				where: { id },
-				data: nuevosDatosProducto,
+				data,
 			});
 			return product;
 		} catch (error) {
@@ -53,13 +53,13 @@ export const productService = {
 	},
 
 	// Método para eliminar un product
-	async destroy(id) {
+	async destroy(id: string): Promise<void> {
 		try {
 			await prisma.product.delete({
 				where: { id },
 			});
 		} catch (error) {
-			throw new Error("Error al eliminar el product");
+			throw new Error("Error al eliminar el producto");
 		}
 	},
 };

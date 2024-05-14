@@ -11,7 +11,8 @@ export default async function handler(
 		return res.status(405).end(`Metodo ${req.method} no permitido`);
 	}
 	try {
-		const products = await productService.getAll();
+    const {id}: any = req.query
+		const products = await productService.getId(id);
 		const data = {
 			message: messageCRUD.success.read,
 			data: products,
