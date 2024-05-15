@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { dataService } from "@/lib/services/dataService";
 import { messageCRUD } from "@/lib/message";
+import { PrismaClient } from "@prisma/client";
 
 export default async function handler(
 	req: NextApiRequest,
@@ -11,8 +12,10 @@ export default async function handler(
 		return res.status(405).end(`Metodo ${req.method} no permitido`);
 	}
 	try {
-    const {id}: any = req.query
-		const products = await dataService.getId(id);
+		const { id }: any = req.query;
+		const prisma = new PrismaClient();
+		const products = await dataService.getById(prisma.clinic, id);
+		
 		if (!products) {
 			return res.status(404).json({ error: messageCRUD.error.read });
 		}

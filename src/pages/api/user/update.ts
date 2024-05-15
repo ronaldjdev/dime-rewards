@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { dataService } from "@/lib/services/dataService";
-import { Product } from "@prisma/client";
+import { PrismaClient, Product } from "@prisma/client";
 import { messageCRUD } from "@/lib/message";
 
 export default async function handler(
@@ -11,10 +11,12 @@ export default async function handler(
 		res.setHeader("Allow", ["PATCH"]);
 		return res.status(405).end(`Metodo ${req.method} no permitido`);
 	}
-  try {
-    const { id }:any = req.query;
+	try {
+		const { id }: any = req.query;
 		const dataProduct: Omit<Product, "id"> = req.body;
-		const updateProduct = await dataService.update(id, dataProduct);
+		const prisma = new PrismaClient();
+
+		const updateProduct = await dataService.update(prisma.user, id, dataProduct);
 		const data = {
 			message: messageCRUD.success.read,
 			data: updateProduct,

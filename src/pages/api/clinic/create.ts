@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { dataService } from "@/lib/services/dataService";
 import { Clinic } from "@prisma/client";
 import { messageCRUD } from "@/lib/message";
+import { PrismaClient } from "@prisma/client/extension";
 
 export default async function handler(
 	req: NextApiRequest,
@@ -11,9 +12,10 @@ export default async function handler(
 		res.setHeader("Allow", ["POST"]);
 		return res.status(405).end(`Metodo ${req.method} no permitido`);
 	}
+	const prisma = new PrismaClient();
 	try {
 		const dataProduct: Omit<Clinic, "id"> = req.body;
-		const newProduct = await dataService.create(dataProduct);
+		const newProduct = await dataService.create(prisma.clinic, dataProduct);
 		const data = {
 			message: messageCRUD.success.create,
 			data: newProduct,
