@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { dataService } from "@/lib/services/dataService";
 import { User } from "@prisma/client";
 import { messageCRUD } from "@/lib/message";
-import { PrismaClient } from "@prisma/client/extension";
+import { PrismaClient } from "@prisma/client";
 
 export default async function handler(
 	req: NextApiRequest,
@@ -15,7 +15,7 @@ export default async function handler(
 	const prisma = new PrismaClient();
 	try {
 		const dataProduct: Omit<User, "id"> = req.body;
-		const newProduct = await dataService.create(prisma.clinic, dataProduct);
+		const newProduct = await dataService.create(prisma.user, dataProduct);
 		const data = {
 			message: messageCRUD.success.create,
 			data: newProduct,

@@ -28,7 +28,7 @@ model User {
   //Relación con Clínicas Odontológicas creadas por el user
   clinics  Clinic[]
   createAt DateTime @default(now())
-  updateAt DateTime
+  updateAt DateTime @updatedAt
 }
 
 // Modelo de Odontólogo

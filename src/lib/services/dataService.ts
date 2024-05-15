@@ -1,3 +1,4 @@
+import { PrismaClient } from "@prisma/client";
 
 // Definir el servicio de productos
 export const dataService = {
@@ -30,6 +31,7 @@ export const dataService = {
 			});
 			return newData;
 		} catch (error) {
+			console.error(error)
 			throw new Error(`Error al crear el elemento `);
 		}
 	},

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { dataService } from "@/lib/services/dataService";
 import { Clinic } from "@prisma/client";
 import { messageCRUD } from "@/lib/message";
-import { PrismaClient } from "@prisma/client/extension";
+import { PrismaClient } from "@prisma/client";
 
 export default async function handler(
 	req: NextApiRequest,
