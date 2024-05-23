@@ -14,14 +14,14 @@ export default async function handler(
 	try {
 		const { id }: any = req.query;
 		const prisma = new PrismaClient();
-		const products = await dataService.getById(prisma.ticket, id);
+		const ticket = await dataService.getById(prisma.ticket, id);
 		
-		if (!products) {
+		if (!ticket) {
 			return res.status(404).json({ error: messageCRUD.error.read });
 		}
 		const data = {
 			message: messageCRUD.success.read,
-			data: products,
+			data: ticket,
 		};
 		return res.status(201).json(data);
 	} catch (error) {

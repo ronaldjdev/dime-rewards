@@ -13,10 +13,10 @@ export default async function handler(
 	}
 	try {
 		const { id }: any = req.query;
-		const dataProduct: Omit<Product, "id"> = req.body;
+		const dataUser: Omit<Product, "id"> = req.body;
 		const prisma = new PrismaClient();
 
-		const updateProduct = await dataService.update(prisma.user, id, dataProduct);
+		const updateProduct = await dataService.update(prisma.user, id, dataUser);
 		const data = {
 			message: messageCRUD.success.read,
 			data: updateProduct,
