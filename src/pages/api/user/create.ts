@@ -14,11 +14,11 @@ export default async function handler(
 	}
 	const prisma = new PrismaClient();
 	try {
-		const dataProduct: Omit<User, "id"> = req.body;
-		const newProduct = await dataService.create(prisma.user, dataProduct);
+		const resp: Omit<User, "id"> = req.body;
+		const newData = await dataService.create(prisma.user, resp);
 		const data = {
 			message: messageCRUD.success.create,
-			data: newProduct,
+			data: newData,
 		};
 		return res.status(201).json(data);
 	} catch (error) {

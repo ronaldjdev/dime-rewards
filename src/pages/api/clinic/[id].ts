@@ -31,7 +31,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         }
 				return update(req, res);
 			} catch (error) {
-				res.status(500).json({ error: "Error al actualizar el producto" });
+				res.status(500).json({ error: "Error al actualizar el elemento" });
 			}
     case "DELETE":
       try {

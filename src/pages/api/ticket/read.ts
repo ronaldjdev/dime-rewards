@@ -13,13 +13,13 @@ export default async function handler(
 	}
 	try {
 		const prisma = new PrismaClient();
-		const products = await dataService.getAll(prisma.ticket);
-		if (products.length === 0) {
+		const tickets = await dataService.getAll(prisma.ticket);
+		if (tickets.length === 0) {
 			return res.status(404).json({ error: messageCRUD.error.read });
 		}
 		const data = {
 			message: messageCRUD.success.read,
-			data: products,
+			data: tickets,
 		};
 		return res.status(201).json(data);
 	} catch (error) {
