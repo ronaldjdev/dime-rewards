@@ -22,6 +22,11 @@ model User {
   phone          String?
   profilePicture String?
 
+  // Relación con Social Network
+  socialMedia SocialMedia[]
+
+  // Relación con Cupones
+  tickets Ticket[]
   // Relación con Odontólogo
   dentist Dentist?
 
@@ -71,6 +76,8 @@ model Ticket {
   code       String
   discount   Float
   expiration DateTime
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
   createAt   DateTime @default(now())
   updateAt   DateTime @updatedAt
 }
@@ -87,4 +94,14 @@ model Product {
   image       String
   createAt    DateTime @default(now())
   updateAt    DateTime @updatedAt
+}
+
+model SocialMedia {
+  id       String   @id @default(uuid())
+  name     String
+  url      String
+  user     User     @relation(fields: [userId], references: [id])
+  userId   String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 }
