@@ -1,6 +1,6 @@
-import { Button } from "./Button"
-import { Searchbar } from "./Searchbar"
-import { Progressbar } from "./Progressbar"
+import { Button } from "@/components/Button"
+import { Searchbar } from "@/components/Searchbar"
+import { Progressbar } from "@/components/Progressbar"
 
 let item = [
   {
@@ -15,7 +15,7 @@ let item = [
 export const Navbar = () => {
   return (
     <>
-      <nav className="w-full flex h-20 bg-slate-400 justify-between items-center sticky z-10 top-0 ">
+      <nav className="w-full flex h-20 bg-blue-600 justify-between items-center sticky z-10 top-0 ">
         <div className="w-fit px-5">
           Logo
         </div>
@@ -26,7 +26,7 @@ export const Navbar = () => {
           <Searchbar />
         </div>
         <div className="w-fit px-5">
-         <Progressbar />
+          <Progressbar />
         </div>
         <div className="flex gap-10 border-x px-4">
           <div>1</div>
@@ -34,7 +34,7 @@ export const Navbar = () => {
           <div>3</div>
         </div>
         <div className="w-fit px-5">
-          <Button />
+          <Button title="Iniciar sesión" color="white" variant="outline" />
         </div>
       </nav>
     </>

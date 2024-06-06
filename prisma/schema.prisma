@@ -31,9 +31,10 @@ model User {
   dentist Dentist?
 
   //Relación con Clínicas Odontológicas creadas por el user
-  clinics  Clinic[]
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  clinics      Clinic[]
+  createAt     DateTime       @default(now())
+  updateAt     DateTime       @updatedAt
+  Notification Notification[]
 }
 
 // Modelo de Odontólogo
@@ -104,4 +105,15 @@ model SocialMedia {
   userId   String
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  type      String // Tipo de notificación: "like", "comment", etc.
+  content   String // Contenido de la notificación
+  read      Boolean  @default(false)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
