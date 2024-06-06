@@ -61,7 +61,7 @@ function handler() {
                 reviewText="This is my third Invicta Pro Diver. They are just fantastic value for money. This one arrived yesterday and the first thing I did was set the time"
               />
             </div>
-            <div className="w-full h-20 bg-indigo-950 rounded-md">
+            <div className="w-full h-20 bg-indigo-950 rounded-md p-2">
               <h3 className="text-white font-bold capitalize">insignias:</h3>
             </div>
           </div>

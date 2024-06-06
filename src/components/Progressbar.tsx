@@ -1,18 +1,13 @@
 export const Progressbar = () => {
   return (
-    <div>
-      <div className="flex justify-between items-center">
-        <h2>
-        Next:
-        </h2>
-        <h2>
-
-        200 DP
-        </h2>
+    <div className="flex flex-col justify-center items-center gap-3 ">
+      <div className="w-full flex justify-between items-center">
+        <h2 className="uppercase ">Next:</h2>
+        <h2 className="uppercase "><span>200</span> dp</h2>
       </div>
-    <div className="w-40 bg-gray-200 rounded-full h-1.5 mb-4 " >
-      <div className="bg-blue-600 h-1.5 rounded-full w-1/3" ></div>
-    </div >
+      <div className="w-40 bg-gray-200 rounded-full h-1.5 " >
+        <div className="bg-black h-1.5 rounded-full w-1/3" ></div>
+      </div >
     </div>
   )
 }
