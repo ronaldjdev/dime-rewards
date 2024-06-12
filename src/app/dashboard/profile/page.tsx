@@ -1,12 +1,12 @@
-import ProfileImage from "@/components/Profile/ProfileImage";
-import { Frontpage } from "@/components/Profile/Frontpage";
-import SocialMedia from "@/components/SocialMedia";
-import { FaFacebookF as F } from "react-icons/fa6";
-import { SiWhatsapp as W, SiInstagram as I, SiGmail as G } from "react-icons/si";
-import StatItem from "@/components/StatItem";
-import { Button } from "@/components/Button";
-import Timeline from "@/components/Timeline"
-import About from "@/components/Profile/AboutProfile"
+import ProfileImage from '@/components/Profile/ProfileImage'
+import { Frontpage } from '@/components/Profile/Frontpage'
+import SocialMedia from '@/components/SocialMedia'
+import { FaFacebookF as F } from 'react-icons/fa6'
+import { SiWhatsapp as W, SiInstagram as I, SiGmail as G } from 'react-icons/si'
+import StatItem from '@/components/StatItem'
+import { Button } from '@/components/Button'
+import Timeline from '@/components/Timeline'
+import About from '@/components/Profile/AboutProfile'
 
 const size = {
   width: 500,
@@ -16,9 +16,16 @@ function handler() {
   return (
     <div className="flex w-full h-full">
       <div className="flex-1 p-4 relative h-full">
-        <Frontpage src="https://via.placeholder.com/500" alt="Avatar" size={{ width: 500, height: 600 }} />
+        <Frontpage
+          src="https://via.placeholder.com/500"
+          alt="Avatar"
+          size={{ width: 500, height: 600 }}
+        />
         <div className="absolute inset-20">
-          <ProfileImage size={size} src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <ProfileImage
+            size={size}
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+          />
         </div>
         <div className="bg-indigo-950 text-center text-white flex flex-col justify-center items-center p-16 rounded-b-md">
           <h1 className="mt-2 text-2xl">Marina Valentine</h1>
@@ -32,15 +39,15 @@ function handler() {
 
           <div className="w-64 flex items-center justify-center gap-4 mt-4">
             <div className="w-14">
-              <StatItem value={"900k"} label={"Puntos"} />
+              <StatItem value={'900k'} label={'Puntos'} />
             </div>
             <div className="w-[1px] bg-white h-8"></div>
             <div className="w-14 ">
-              <StatItem value={"900"} label={"Quest"} />
+              <StatItem value={'900'} label={'Quest'} />
             </div>
             <div className="w-[1px] bg-white h-8"></div>
             <div className="w-14">
-              <StatItem value={"900"} label={"redimidos"} />
+              <StatItem value={'900'} label={'redimidos'} />
             </div>
           </div>
           <div className="flex justify-center mt-6 space-x-4">

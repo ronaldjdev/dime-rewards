@@ -6,7 +6,7 @@ const Timeline = () => {
         {
           user: 'Jese Leos',
           action: 'likes',
-          targetUser: 'Bonnie Green\'s',
+          targetUser: "Bonnie Green's",
           targetType: 'post',
           targetTitle: 'How to start with Flowbite library',
           description: 'I wanted to share a webinar zeroheight.',
@@ -16,7 +16,7 @@ const Timeline = () => {
         {
           user: 'Bonnie Green',
           action: 'react to',
-          targetUser: 'Thomas Lean\'s',
+          targetUser: "Thomas Lean's",
           targetType: 'comment',
           image: 'http://via.placeholder.com/100',
           visibility: 'Private',
@@ -29,7 +29,7 @@ const Timeline = () => {
         {
           user: 'Laura Romeros',
           action: 'likes',
-          targetUser: 'Bonnie Green\'s',
+          targetUser: "Bonnie Green's",
           targetType: 'post',
           targetTitle: 'How to start with Flowbite library',
           description: 'I wanted to share a webinar zeroheight.',
@@ -39,7 +39,7 @@ const Timeline = () => {
         {
           user: 'Mike Willi',
           action: 'react to',
-          targetUser: 'Thomas Lean\'s',
+          targetUser: "Thomas Lean's",
           targetType: 'comment',
           image: 'http://via.placeholder.com/100',
           visibility: 'Public',
@@ -47,7 +47,7 @@ const Timeline = () => {
         {
           user: 'Jese Leos',
           action: 'likes',
-          targetUser: 'Bonnie Green\'s',
+          targetUser: "Bonnie Green's",
           targetType: 'post',
           targetTitle: 'How to start with Flowbite library',
           description: 'I wanted to share a webinar zeroheight.',
@@ -57,7 +57,7 @@ const Timeline = () => {
         {
           user: 'Bonnie Green',
           action: 'likes',
-          targetUser: 'Bonnie Green\'s',
+          targetUser: "Bonnie Green's",
           targetType: 'post',
           targetTitle: 'Top figma designs',
           description: 'I wanted to share a webinar zeroheight.',
@@ -66,7 +66,7 @@ const Timeline = () => {
         },
       ],
     },
-  ];
+  ]
 
   return (
     <div className="space-y-4">
@@ -75,7 +75,9 @@ const Timeline = () => {
           key={index}
           className="p-5 mb-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
         >
-          <time className="text-lg font-semibold text-gray-900 dark:text-white">{event.date}</time>
+          <time className="text-lg font-semibold text-gray-900 dark:text-white">
+            {event.date}
+          </time>
           <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             {event.details.map((detail, idx) => (
               <li key={idx}>
@@ -90,9 +92,21 @@ const Timeline = () => {
                   />
                   <div className="text-gray-600 dark:text-gray-400">
                     <div className="text-base font-normal">
-                      <span className="font-medium text-gray-900 dark:text-white">{detail.user}</span> {detail.action} <span className="font-medium text-gray-900 dark:text-white">{detail.targetUser}</span>&apos;s {detail.targetType} in <span className="font-medium text-gray-900 dark:text-white">{detail.targetTitle}</span>
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        {detail.user}
+                      </span>{' '}
+                      {detail.action}{' '}
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        {detail.targetUser}
+                      </span>
+                      &apos;s {detail.targetType} in{' '}
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        {detail.targetTitle}
+                      </span>
                     </div>
-                    <div className="text-sm font-normal">{detail.description}</div>
+                    <div className="text-sm font-normal">
+                      {detail.description}
+                    </div>
                     <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                       <svg
                         className="w-2.5 h-2.5 me-1"
@@ -113,7 +127,7 @@ const Timeline = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Timeline;
+export default Timeline

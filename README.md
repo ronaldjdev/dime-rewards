@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![GitHub repo size](https://img.shields.io/github/repo-size/ronaldjdev/DIME-rewards?style=plastic)
+![GitHub issues](https://img.shields.io/github/issues/ronaldjdev/DIME-rewards?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ronaldjdev/DIME-rewards?style=plastic)
+![GitHub license](https://img.shields.io/github/license/ronaldjdev/DIME-rewards?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/ronaldjdev/DIME-rewards?style=plastic)
+# DIME Rewards
 
-## Getting Started
 
-First, run the development server:
+**Distribuidora de Insumos Odontológicos Especializados (DIME)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Descripción
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+DIME Rewards es una aplicación diseñada específicamente para odontólogos, ofreciendo un plan de puntos que permite a los usuarios acumular puntos y canjearlos por productos gratuitos, descuentos en tienda y más. Nuestra plataforma está enfocada en proporcionar un valor añadido a los profesionales de la odontología, incentivando la fidelización a través de recompensas atractivas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Características
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Acumulación de Puntos**: Los odontólogos pueden acumular puntos mediante la compra de productos y servicios.
+- **Canje de Recompensas**: Los puntos acumulados se pueden canjear por productos gratuitos, descuentos en tienda y otros beneficios exclusivos.
+- **Historial de Puntos**: Los usuarios pueden ver su historial de puntos acumulados y canjeados.
+- **Notificaciones**: Mantén a los usuarios informados sobre nuevas promociones y ofertas especiales.
 
-## Learn More
+## Tecnologías Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![Prisma ORM](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Instalación y Uso
 
-## Deploy on Vercel
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/ronaldjdev/dime-rewards
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Instalar las dependencias:**
+   ```bash
+   cd dime-rewards
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Configurar la base de datos:**
+   - Crear una base de datos PostgreSQL.
+   - Configurar las variables de entorno en `.env` con las credenciales de la base de datos.
+
+4. **Migrar la base de datos:**
+   ```bash
+   npx prisma migrate dev
+   ```
+
+5. **Iniciar la aplicación:**
+   ```bash
+   npm run dev
+   ```
+
+## Contribuir
+
+Si deseas contribuir al desarrollo de DIME Rewards, por favor sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
+3. Realiza los cambios necesarios y haz commits (`git commit -m 'Agrega nueva característica'`).
+4. Empuja los cambios a tu rama (`git push origin feature/nueva-caracteristica`).
+5. Abre un Pull Request para revisar tus cambios.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.

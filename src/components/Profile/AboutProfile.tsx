@@ -1,4 +1,4 @@
-import InfoItem from "@/components/InfoItem"
+import InfoItem from '@/components/InfoItem'
 
 interface Props {
   email: string
@@ -8,7 +8,14 @@ interface Props {
   phone: number
   reviewText: string
 }
-const About = ({ email, joinedDate, city, country, phone, reviewText }: Partial<Props>) => {
+const About = ({
+  email,
+  joinedDate,
+  city,
+  country,
+  phone,
+  reviewText,
+}: Partial<Props>) => {
   return (
     <article>
       <div className="flex items-center mb-4">
@@ -24,7 +31,7 @@ const About = ({ email, joinedDate, city, country, phone, reviewText }: Partial<
         </div>
       </div>
     </article>
-  );
+  )
 }
 
-export default About;
+export default About

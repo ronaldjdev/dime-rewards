@@ -1,7 +1,14 @@
-const NavItem = ({ href, children }: { href: string, children: React.ReactNode }) => {
+interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string
+  children: React.ReactNode
+}
+
+const NavItem = ({ href, children, ...rest }: Props) => {
   return (
     <div>
-      <a href={href}>{children}</a>
+      <a href={href} {...rest}>
+        {children}
+      </a>
     </div>
   )
 }
