@@ -1,26 +1,25 @@
-import Section from './Section'
 import { Button } from '@/components/Button'
 const Service = () => {
-
   return (
-    <div className="flex justify-center items-center gap-1 w-full min-h-[600px] p-5 rounded-2xl font-grey-500">
+    <div className="flex justify-center items-center gap-1 w-full min-h-[600px] py-5 rounded-2xl font-grey-500">
       <div className="flex flex-col w-1/2 h-full justify-center items-start gap-4">
-        <h1 className="capitalize text-5xl font-medium p-none m-none w-96">
-          Gana puntos y crea sonrisas sanas con Dime Rewards.
+        <h1 className="first-letter:uppercase text-5xl font-medium p-none m-none w-96">
+          Gana puntos y crea sonrisas sanas.
         </h1>
-        <p className="text-md p-none m-none w-96">
-          En DIME, valoramos tu compromiso con la salud dental. Con Dime Rewards,
-          cada compra acumula puntos que puedes canjear por descuentos o servicios
-          dentales gratuitos. Además, cada punto ganado contribuye a mejorar la
-          salud bucal comunitaria. <br /> Únete hoy mismo y convierte tus compras en
-          sonrisas saludables.
+        <p className="first-letter:uppercase text-md p-none m-none w-96">
+          valoramos tu compromiso con la salud dental. Con{' '}
+          <span className="font-bold">DIME Rewards</span> , cada compra de
+          insumos odontológicos acumula puntos que puedes canjear por descuentos
+          exclusivos y servicios gratuitos.
         </p>
         <p className="text-md p-none m-none w-96">
-          Únete hoy mismo y convierte tus compras en sonrisas saludables.
+          Únete hoy mismo y transforma tus compras en beneficios para tu clínica
+          dental y tus pacientes. ¡Empieza a ganar puntos y crea sonrisas sanas
+          con cada compra.
         </p>
         <Button color="black" variant="outline" title="empezar" />
       </div>
-      <div className="w-1/2 flex h-full justify-center items-center bg-sky-100 rounded-lg">
+      <div className="w-1/2 flex h-full justify-center items-center bg-sky-100 rounded-2xl">
         <img className="w-96 h-96" src="./logo_dime_rewards.png" alt="logo" />
       </div>
     </div>

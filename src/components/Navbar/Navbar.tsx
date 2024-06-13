@@ -23,7 +23,7 @@ let item = [
     href: '/preferences',
   },
 ]
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
   return (
     <>
       <nav className="w-full flex h-20 bg-blue-600 justify-between text-white items-center sticky z-10 top-0 ">

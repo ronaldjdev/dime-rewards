@@ -3,7 +3,7 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode
 }
 
-const NavItem = ({ href, children, ...rest }: Props) => {
+const NavItem: React.FC<Props> = ({ href, children, ...rest }) => {
   return (
     <div>
       <a href={href} {...rest}>

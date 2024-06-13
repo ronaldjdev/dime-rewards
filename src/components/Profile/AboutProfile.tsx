@@ -8,14 +8,14 @@ interface Props {
   phone: number
   reviewText: string
 }
-const About = ({
+const About: React.FC<Partial<Props>> = ({
   email,
   joinedDate,
   city,
   country,
   phone,
   reviewText,
-}: Partial<Props>) => {
+}) => {
   return (
     <article>
       <div className="flex items-center mb-4">
