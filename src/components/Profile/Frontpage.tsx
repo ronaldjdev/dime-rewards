@@ -7,7 +7,18 @@ interface Props {
     height: number
   }
 }
-export function Frontpage({ src, alt, size }: Props) {
+/**
+ * Renders a frontpage component with an image.
+ *
+ * @param {Props} props - The properties for the component.
+ * @param {string} props.src - The source URL of the image.
+ * @param {string} props.alt - The alternative text for the image.
+ * @param {Object} props.size - The size of the image.
+ * @param {number} props.size.width - The width of the image.
+ * @param {number} props.size.height - The height of the image.
+ * @return {JSX.Element} The rendered frontpage component.
+ */
+const Frontpage:React.FC<Props> = ({ src, alt, size })=>{
   return (
     <div className="overflow-hidden rounded-t-md">
       <Image
@@ -20,3 +31,5 @@ export function Frontpage({ src, alt, size }: Props) {
     </div>
   )
 }
+
+export default Frontpage;

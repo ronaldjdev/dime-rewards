@@ -1,5 +1,10 @@
 // import logo2 from "../../public/icon-192x192.png"
-export const Brand = () => {
+/**
+ * Renders the Sidebar component.
+ *
+ * @return {ReactElement} The rendered Sidebar component.
+ */
+export const Brand: React.FC = () => {
   return (
     <a href="/" className="h-10">
       <img

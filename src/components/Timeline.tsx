@@ -1,4 +1,9 @@
-const Timeline = () => {
+/**
+ * Renders the Sidebar component.
+ *
+ * @return {ReactElement} The rendered Sidebar component.
+ */
+const Timeline: React.FC = () => {
   const events = [
     {
       date: 'January 13th, 2022',

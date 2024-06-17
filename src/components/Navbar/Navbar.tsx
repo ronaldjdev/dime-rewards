@@ -23,6 +23,12 @@ let item = [
     href: '/preferences',
   },
 ]
+
+/**
+ * Renders a navigation bar component with a logo, search bar, progress bar, navigation links, and a login button.
+ *
+ * @return {ReactElement} The rendered navigation bar component.
+ */
 export const Navbar: React.FC = () => {
   return (
     <>

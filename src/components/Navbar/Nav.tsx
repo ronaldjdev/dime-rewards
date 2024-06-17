@@ -6,6 +6,11 @@ import { navbarOptions as itemsNav } from '@/libs/utils'
 import { useEffect, useState } from 'react'
 import NavLink from '@/components/Navbar/NavItem'
 
+/**
+ * Function that handles the scroll event and updates the state based on the scroll position.
+ *
+ * @return {void}
+ */
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
 

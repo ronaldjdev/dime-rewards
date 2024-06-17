@@ -1,9 +1,18 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import create from './create'
-import update from './update'
-import destroy from './delete'
-import detail from './detail'
+import detail from '@/libs/services/handler/detail'
+import update from '@/libs/services/handler/update'
+import destroy from '@/libs/services/handler/delete'
+import prisma from '@/libs/prisma'
+import { messageCRUD } from '@/libs/message'
 
+let model = prisma.clinic
+/**
+ * A function that handles different HTTP methods and routes based on the method type.
+ *
+ * @param {NextApiRequest} req - The incoming request object
+ * @param {NextApiResponse} res - The response object to send back
+ * @return {void} This function does not return a value directly, but it handles the HTTP request and response
+ */
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const {
     query: { id },
@@ -15,32 +24,30 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     case 'GET':
       try {
         if (id) {
-          return detail(req, res)
+          return detail(req, res, model)
         }
       } catch (error) {
-        return res.status(500).json({ error: 'Error al obtener el elemento' })
+        return res.status(500).json({ error: messageCRUD.error.id.invalid })
       }
     case 'PATCH':
       try {
         if (!body) {
-          res
-            .status(400)
-            .json({ error: 'El cuerpo de la solicitud está vacío' })
+          res.status(400).json({ error: messageCRUD.error.body })
           return
         }
-        return update(req, res)
+        return update(req, res, model)
       } catch (error) {
-        res.status(500).json({ error: 'Error al actualizar el elemento' })
+        res.status(500).json({ error: messageCRUD.error })
       }
     case 'DELETE':
       try {
         if (!id) {
-          res.status(400).json({ error: 'El ID es obligatorio' })
+          res.status(400).json({ error: messageCRUD.error.id.missing })
           return
         }
-        return destroy(req, res)
+        return destroy(req, res, model)
       } catch (error) {
-        res.status(500).json({ error: 'Error al eliminar el elemento' })
+        res.status(500).json({ error: messageCRUD.error.delete })
       }
     default:
       res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE'])

@@ -1,11 +1,20 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { dataService } from '@/libs/services/dataService'
-import { PrismaClient, Product } from '@prisma/client'
 import { messageCRUD } from '@/libs/message'
+
+/**
+ * Handles the PATCH request to update a record in the database.
+ *
+ * @param {NextApiRequest} req - The request object containing the HTTP request.
+ * @param {NextApiResponse} res - The response object used to send the HTTP response.
+ * @param {any} model - The model used to interact with the database.
+ * @return {Promise<void>} A promise that resolves when the update is successful or rejects with an error.
+ */
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
+  model: any,
 ) {
   if (req.method !== 'PATCH') {
     res.setHeader('Allow', ['PATCH'])
@@ -13,17 +22,12 @@ export default async function handler(
   }
   try {
     const { id }: any = req.query
-    const dataProduct: Omit<Product, 'id'> = req.body
-    const prisma = new PrismaClient()
+    const reqData = req.body
 
-    const updateProduct = await dataService.update(
-      prisma.product,
-      id,
-      dataProduct,
-    )
+    const record = await dataService.update(model, id, reqData)
     const data = {
       message: messageCRUD.success.read,
-      data: updateProduct,
+      data: record,
     }
     return res.status(201).json(data)
   } catch (error) {

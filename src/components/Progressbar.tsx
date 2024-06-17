@@ -1,4 +1,9 @@
-export const Progressbar = () => {
+/**
+ * Renders the Sidebar component.
+ *
+ * @return {ReactElement} The rendered Sidebar component.
+ */
+export const Progressbar: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center gap-3 ">
       <div className="w-full flex justify-between items-center">

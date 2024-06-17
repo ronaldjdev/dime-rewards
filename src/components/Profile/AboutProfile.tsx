@@ -5,9 +5,22 @@ interface Props {
   joinedDate: string
   city: string
   country: string
-  phone: number
+  phone: string
   reviewText: string
 }
+
+/**
+ * Renders the About section with user information.
+ *
+ * @param {string} email - The user's email.
+ * @param {string} joinedDate - The date the user joined.
+ * @param {string} city - The user's city.
+ * @param {string} country - The user's country.
+ * @param {number} phone - The user's phone number.
+ * @param {string} reviewText - The review text for the user.
+ * @return {JSX.Element} The rendered About section.
+ */
+
 const About: React.FC<Partial<Props>> = ({
   email,
   joinedDate,

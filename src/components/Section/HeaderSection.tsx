@@ -2,7 +2,7 @@ interface Props {
   title: string
   content: string
 }
-const HeaderSection: React.FC<Props> = ({ title, content }) => {
+const HeaderSection: React.FC<Partial<Props>> = ({ title, content }) => {
   return (
     <div className="flex justify-center items-center gap-1 w-full rounded-2xl my-10">
       <div className="flex flex-col w-1/2 h-full justify-center items-start gap-4">

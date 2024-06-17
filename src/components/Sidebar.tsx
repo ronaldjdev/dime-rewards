@@ -23,7 +23,14 @@ const items = [
     text: 'Eventos',
   },
 ]
-export const Sidebar = () => {
+
+
+/**
+ * Renders the Sidebar component.
+ *
+ * @return {ReactElement} The rendered Sidebar component.
+ */
+export const Sidebar: React.FC = () => {
   return (
     <div className="bg-gray-800 text-white w-20 h-full p-4">
       <ul>

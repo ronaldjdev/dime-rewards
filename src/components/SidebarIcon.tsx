@@ -2,7 +2,15 @@ interface Props {
   icon: any
   text: string
 }
-const SidebarIcon = ({ icon, text }: Partial<Props>) => {
+/**
+ * Renders a sidebar icon component with a hover effect.
+ *
+ * @param {Partial<Props>} props - The component props.
+ * @param {ReactNode} props.icon - The icon to display.
+ * @param {string} props.text - The text to display when hovering over the icon.
+ * @return {ReactElement} The rendered sidebar icon component.
+ */
+const SidebarIcon: React.FC<Partial<Props>> = ({ icon, text }) => {
   const hoverColor = 'bg-indigo-500 rounded-md'
   return (
     <div className="w-fit h-fit p-2 relative group flex items-center justify-center overflow-hidden hover:overflow-visible ">
