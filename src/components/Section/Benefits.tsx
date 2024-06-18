@@ -1,4 +1,4 @@
-import { cardData } from "@/libs/utils"
+import { cardData } from '@/libs/utils'
 
 import Cards from './Cards'
 import CardItem from './CardItem'
@@ -27,7 +27,7 @@ const Benefits = () => {
         </div>
       </div>
       <div className="flex justify-center items-center gap-1 w-full rounded-2xl">
-        <Cards  data={cardData} />
+        <Cards data={cardData} />
       </div>
     </div>
   )

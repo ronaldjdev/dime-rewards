@@ -3,13 +3,13 @@ import {
   CiDesktop as Overview,
   CiStar as Quest,
   CiCalendarDate as Event,
-} from 'react-icons/ci';
+} from 'react-icons/ci'
 
-import SidebarIcon from '@/components/SidebarIcon';
+import SidebarIcon from '@/components/SidebarIcon'
 
 interface ItemsProps {
-  icon: JSX.Element;
-  text: string;
+  icon: JSX.Element
+  text: string
 }
 
 const items: ItemsProps[] = [
@@ -29,7 +29,7 @@ const items: ItemsProps[] = [
     icon: <Event size={30} />,
     text: 'Eventos',
   },
-];
+]
 
 /**
  * Renders the Sidebar component.
@@ -45,5 +45,5 @@ export const Sidebar: React.FC = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}

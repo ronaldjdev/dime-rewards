@@ -23,7 +23,7 @@ export default async function handler(
     return res.status(405).end(`Metodo ${req.method} no permitido`)
   }
   try {
-    const { id }= req.query
+    const { id } = req.query
 
     const record = await dataService.getById(model, id)
 

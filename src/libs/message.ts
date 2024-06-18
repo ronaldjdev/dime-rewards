@@ -14,6 +14,6 @@ export const messageCRUD = {
       missing: 'El ID es obligatorio',
       invalid: 'El ID proporcionado no es válido',
     },
-    body: 'El cuerpo de la solicitud esta vacio'
+    body: 'El cuerpo de la solicitud esta vacio',
   },
 }

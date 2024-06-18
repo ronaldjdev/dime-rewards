@@ -6,7 +6,7 @@ import { CiSearch as IconSearch } from 'react-icons/ci'
  * @return {ReactElement} The rendered Sidebar component.
  */
 
-export const Searchbar:React.FC = () => {
+export const Searchbar: React.FC = () => {
   return (
     <div className="border border-white p-2 rounded-lg flex justify-between items-center w-full">
       <input

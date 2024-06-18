@@ -19,7 +19,7 @@ interface Props {
  * @param {number} props.size.height - The height of the image.
  * @return {JSX.Element} The rendered frontpage component.
  */
-const Frontpage:React.FC<Props> = ({ src, alt, size })=>{
+const Frontpage: React.FC<Props> = ({ src, alt, size }) => {
   return (
     <div className="overflow-hidden rounded-t-md">
       <Image
@@ -33,4 +33,4 @@ const Frontpage:React.FC<Props> = ({ src, alt, size })=>{
   )
 }
 
-export default Frontpage;
+export default Frontpage

@@ -2,7 +2,7 @@ import { FaFacebookF as F } from 'react-icons/fa6'
 import { SiWhatsapp as W, SiInstagram as I, SiGmail as G } from 'react-icons/si'
 
 import ProfileImage from '@/components/Profile/ProfileImage'
-import  Frontpage  from '@/components/Profile/Frontpage'
+import Frontpage from '@/components/Profile/Frontpage'
 import SocialMedia from '@/components/SocialMedia'
 import StatItem from '@/components/StatItem'
 import { Button } from '@/components/Button'
@@ -65,7 +65,7 @@ function handler() {
                 city="Popayan"
                 country="Colombia"
                 email="erante@eran.com"
-                phone={123456789}
+                phone={'123456789'}
                 reviewText="This is my third Invicta Pro Diver. They are just fantastic value for money. This one arrived yesterday and the first thing I did was set the time"
               />
             </div>

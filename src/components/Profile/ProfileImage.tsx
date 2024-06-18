@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 interface Size {
-    width: number
-    height: number
+  width: number
+  height: number
 }
 interface Props {
   src: string

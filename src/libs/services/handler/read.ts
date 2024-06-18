@@ -5,7 +5,6 @@ import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
 
-
 /**
  * Handles the GET request to retrieve a record from the database.
  *
@@ -24,7 +23,7 @@ export default async function handler(
     return res.status(405).end(`Metodo ${req.method} no permitido`)
   }
   try {
-    const { id }= req.query
+    const { id } = req.query
 
     const record = await dataService.getById(model, id)
 

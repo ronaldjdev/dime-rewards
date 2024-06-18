@@ -3,10 +3,10 @@ import ServiceItem from '@/components/Section/ServiceItem'
 import CardItem from './CardItem'
 //Props data recibe un array de objetos
 interface CardDataItem {
-  title: string;
-  description: string;
-  borderColor?: string; // Opcional, ya que no todos los objetos tienen esta propiedad
-  bgColor?: string;     // Opcional, ya que no todos los objetos tienen esta propiedad
+  title: string
+  description: string
+  borderColor?: string // Opcional, ya que no todos los objetos tienen esta propiedad
+  bgColor?: string // Opcional, ya que no todos los objetos tienen esta propiedad
 }
 interface Props {
   data: CardDataItem[]

@@ -15,7 +15,10 @@ const model = prisma.clinic
  * @param {NextApiResponse} res - The response object to send back
  * @return {void} This function does not return a value directly, but it handles the HTTP request and response
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   const {
     query: { id },
     method,

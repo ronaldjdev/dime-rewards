@@ -1,4 +1,4 @@
-import { PrismaDelegate } from "@/types/prismaDelegate"
+import { PrismaDelegate } from '@/types/prismaDelegate'
 
 /**
  * Servicio de datos para realizar operaciones CRUD con modelos de base de datos.
