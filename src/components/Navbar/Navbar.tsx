@@ -1,15 +1,17 @@
-import { Button } from '@/components/Button'
-import { Searchbar } from '@/components/Searchbar'
-import { Progressbar } from '@/components/Progressbar'
 import {
   CiShop as Shop,
   CiShoppingCart as ShoppingCar,
-  CiSettings as IconConfig,
+  // CiSettings as IconConfig,
   CiBellOn as IconNoti,
 } from 'react-icons/ci'
+
+import { Button } from '@/components/Button'
+import { Searchbar } from '@/components/Searchbar'
+import { Progressbar } from '@/components/Progressbar'
+
 import NavLink from './NavItem'
 
-let item = [
+const item = [
   {
     icon: <Shop strokeWidth="1" size="24" />,
     href: '/shop',
@@ -49,6 +51,7 @@ export const Navbar: React.FC = () => {
         </div>
         <div className=" flex px-2">
           <Button title="Iniciar sesión" color="white" variant="outline" />
+          {/* <IconConfig/> */}
         </div>
       </nav>
     </>

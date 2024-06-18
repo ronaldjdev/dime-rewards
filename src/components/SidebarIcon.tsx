@@ -1,7 +1,8 @@
 interface Props {
-  icon: any
+  icon: React.ReactNode
   text: string
 }
+
 /**
  * Renders a sidebar icon component with a hover effect.
  *
@@ -10,6 +11,7 @@ interface Props {
  * @param {string} props.text - The text to display when hovering over the icon.
  * @return {ReactElement} The rendered sidebar icon component.
  */
+
 const SidebarIcon: React.FC<Partial<Props>> = ({ icon, text }) => {
   const hoverColor = 'bg-indigo-500 rounded-md'
   return (

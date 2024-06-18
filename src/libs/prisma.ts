@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client'
 
 declare global {
   // Permite el guardado en caché del cliente Prisma en el ámbito global en desarrollo
+  // eslint-disable-next-line no-var
   var prisma: PrismaClient | undefined
 }
 let prisma: PrismaClient

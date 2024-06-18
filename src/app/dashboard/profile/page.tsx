@@ -1,8 +1,9 @@
+import { FaFacebookF as F } from 'react-icons/fa6'
+import { SiWhatsapp as W, SiInstagram as I, SiGmail as G } from 'react-icons/si'
+
 import ProfileImage from '@/components/Profile/ProfileImage'
 import  Frontpage  from '@/components/Profile/Frontpage'
 import SocialMedia from '@/components/SocialMedia'
-import { FaFacebookF as F } from 'react-icons/fa6'
-import { SiWhatsapp as W, SiInstagram as I, SiGmail as G } from 'react-icons/si'
 import StatItem from '@/components/StatItem'
 import { Button } from '@/components/Button'
 import Timeline from '@/components/Timeline'

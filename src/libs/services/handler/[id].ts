@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+
+import { messageCRUD} from "@/libs/message"
+
 import update from './update'
 import destroy from './delete'
 import detail from './detail'
-import { messageCRUD} from "@/libs/message"
 
 /**
  * Handles API requests for a specific resource identified by an ID.

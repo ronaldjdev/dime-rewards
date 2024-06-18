@@ -1,9 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { Ticket } from '@prisma/client'
+
 import create from '@/libs/services/handler/create'
 import list from '@/libs/services/handler/read'
 import { messageCRUD } from '@/libs/message'
-import prisma from "@/libs/prisma"
+import prisma from '@/libs/prisma'
 
+const model = prisma.ticket
 /**
  * Handles API requests for the ticket endpoint.
  *
@@ -11,21 +14,26 @@ import prisma from "@/libs/prisma"
  * @param {NextApiResponse} res - The response object.
  * @return {Promise<void>} A promise that resolves when the request is handled.
  */
-let model = prisma.ticket
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { method, body } = req
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const { method, body } = req as { method: string; body: Partial<Ticket> }
 
   switch (method) {
     case 'POST':
       if (!body) {
         res.status(400).json({ error: messageCRUD.error.body })
-        return
       }
-      return create(req, res, model)
+      await create(req, res, model)
+      break
+
     case 'GET':
-      return list(req, res, model)
+      await list(req, res, model)
+      break
     default:
       res.setHeader('Allow', ['GET', 'POST'])
       res.status(405).end(`Método ${method} no permitido`)
+      break
   }
 }

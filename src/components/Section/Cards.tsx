@@ -1,16 +1,22 @@
-import CardItem from './CardItem'
 import ServiceItem from '@/components/Section/ServiceItem'
-//Props data recibe un array de objetos
 
+import CardItem from './CardItem'
+//Props data recibe un array de objetos
+interface CardDataItem {
+  title: string;
+  description: string;
+  borderColor?: string; // Opcional, ya que no todos los objetos tienen esta propiedad
+  bgColor?: string;     // Opcional, ya que no todos los objetos tienen esta propiedad
+}
 interface Props {
-  data: any
-  service: boolean
+  data: CardDataItem[]
+  service?: boolean
 }
 
 const Cards: React.FC<Props> = ({ data, service = false }) => {
   const serviceCards = (
     <div className="flex justify-center items-center w-full h-64 gap-4 rounded-2xl">
-      {data?.map((card: any, index: number) => (
+      {data?.map((card: CardDataItem, index: number) => (
         <ServiceItem
           key={index}
           title={card.title}
@@ -22,7 +28,7 @@ const Cards: React.FC<Props> = ({ data, service = false }) => {
   )
   const cards = (
     <div className="flex justify-center items-center w-full h-64 gap-4 rounded-2xl">
-      {data?.map((card: any, index: number) => (
+      {data?.map((card: CardDataItem, index: number) => (
         <CardItem
           key={index}
           title={card.title}

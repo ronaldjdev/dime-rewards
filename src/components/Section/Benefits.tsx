@@ -1,7 +1,9 @@
+import { cardData } from "@/libs/utils"
+
 import Cards from './Cards'
 import CardItem from './CardItem'
 import Header from './HeaderSection'
-import {cardData} from "@/libs/utils"
+
 const Benefits = () => {
   return (
     <div className="flex flex-col justify-center items-center px-10 gap-4 w-full box-border">
@@ -25,7 +27,7 @@ const Benefits = () => {
         </div>
       </div>
       <div className="flex justify-center items-center gap-1 w-full rounded-2xl">
-        <Cards data={cardData} />
+        <Cards  data={cardData} />
       </div>
     </div>
   )

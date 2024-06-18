@@ -1,9 +1,10 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 import { Button } from '@/components/Button'
 import { Brand } from '@/components/Brand'
 import { navbarOptions as itemsNav } from '@/libs/utils'
-import { useEffect, useState } from 'react'
 import NavLink from '@/components/Navbar/NavItem'
 
 /**

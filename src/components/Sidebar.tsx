@@ -1,10 +1,12 @@
-import SidebarIcon from '@/components/SidebarIcon'
 import {
   CiMedal as Badge,
   CiDesktop as Overview,
   CiStar as Quest,
   CiCalendarDate as Event,
 } from 'react-icons/ci'
+
+import SidebarIcon from '@/components/SidebarIcon'
+
 const items = [
   {
     icon: <Badge size="30" />,

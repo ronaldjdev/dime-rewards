@@ -87,13 +87,13 @@ const Timeline: React.FC = () => {
             {event.details.map((detail, idx) => (
               <li key={idx}>
                 <a
-                  href="#"
+                  href="/"
                   className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
                   <img
                     className="w-12 h-12 mb-3 me-3 rounded-full sm:mb-0"
                     src={detail.image}
-                    alt={`${detail.user} image`}
+                    alt="icono"
                   />
                   <div className="text-gray-600 dark:text-gray-400">
                     <div className="text-base font-normal">

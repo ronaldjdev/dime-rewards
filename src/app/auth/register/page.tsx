@@ -155,7 +155,7 @@ const Register = () => {
         >
           I agree with the{' '}
           <a
-            href="#"
+            href="/"
             className="text-blue-600 hover:underline dark:text-blue-500"
           >
             terms and conditions
