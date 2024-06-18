@@ -1,24 +1,19 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import { Clinic } from '@prisma/client'
+import { NextApiResponse } from 'next'
 
 import create from '@/libs/services/handler/create'
 import list from '@/libs/services/handler/read'
 import { messageCRUD } from '@/libs/message'
 import prisma from '@/libs/prisma'
+import { ClinicDelegate } from '@/types/prismaDelegate'
+import { RequestProps } from '@/types/RequestProps'
 
-const model = prisma.clinic
-/**
- * Handles API requests for the clinic endpoint.
- *
- * @param {NextApiRequest} req - The request object.
- * @param {NextApiResponse} res - The response object.
- * @return {Promise<void>} A promise that resolves when the request is handled.
- */
+const model: ClinicDelegate = prisma.clinic
+
 export default async function handler(
-  req: NextApiRequest,
+  req: RequestProps,
   res: NextApiResponse,
 ) {
-  const { method, body } = req as { method: string; body: Partial<Clinic> }
+  const { method, body } = req 
 
   switch (method) {
     case 'POST':

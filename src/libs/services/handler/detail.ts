@@ -1,22 +1,15 @@
 import { NextApiResponse } from 'next'
 
-import { PrismaDelegate } from '@/types/prismaDelegate'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
+import { ClinicDelegate, UserDelegate, DentistDelegate, TicketDelegate, ProductDelegate } from '@/types/prismaDelegate'
 
-/**
- * Handles the GET request to retrieve a record from the database by its ID.
- *
- * @param {Pick<RequestProps, 'method' | 'body'>} req - The request object containing the HTTP method and body.
- * @param {NextApiResponse} res - The response object used to send the HTTP response.
- * @param {PrismaDelegate<unknown>} model - The Prisma model used to interact with the database.
- * @return {Promise<void>} A promise that resolves when the response is sent.
- */
+
 export default async function handler(
   req: Pick<RequestProps, 'method' | 'query'>,
   res: NextApiResponse,
-  model: PrismaDelegate<unknown>,
+  model: ClinicDelegate | UserDelegate | DentistDelegate | TicketDelegate | ProductDelegate,
 ) {
   if (req.method !== 'GET') {
     res.setHeader('Allow', ['GET'])

@@ -1,24 +1,19 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import { Product } from '@prisma/client'
+import { NextApiResponse } from 'next'
 
 import create from '@/libs/services/handler/create'
 import list from '@/libs/services/handler/read'
 import { messageCRUD } from '@/libs/message'
 import prisma from '@/libs/prisma'
+import { RequestProps } from '@/types/RequestProps'
+import { ProductDelegate } from '@/types/prismaDelegate'
 
-const model = prisma.product
-/**
- * Handles API requests for the product endpoint.
- *
- * @param {NextApiRequest} req - The request object.
- * @param {NextApiResponse} res - The response object.
- * @return {Promise<void>} A promise that resolves when the request is handled.
- */
+const model: ProductDelegate = prisma.product
+
 export default async function handler(
-  req: NextApiRequest,
+  req: RequestProps,
   res: NextApiResponse,
 ) {
-  const { method, body } = req as { method: string; body: Partial<Product> }
+  const { method, body } = req 
 
   switch (method) {
     case 'POST':

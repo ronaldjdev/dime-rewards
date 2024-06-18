@@ -1,29 +1,21 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import { Dentist } from '@prisma/client'
+import { NextApiResponse } from 'next'
 
 import detail from '@/libs/services/handler/detail'
 import update from '@/libs/services/handler/update'
 import destroy from '@/libs/services/handler/delete'
 import prisma from '@/libs/prisma'
 import { messageCRUD } from '@/libs/message'
+import { RequestProps } from '@/types/RequestProps'
+import { DentistDelegate } from '@/types/prismaDelegate'
 
-const model = prisma.dentist
-/**
- * A function that handles different HTTP methods and routes based on the method type.
- *
- * @param {NextApiRequest} req - The incoming request object
- * @param {NextApiResponse} res - The response object to send back
- * @return {void} This function does not return a value directly, but it handles the HTTP request and response
- */
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+const model: DentistDelegate = prisma.dentist
+
+export default async function handler(req: RequestProps, res: NextApiResponse) {
   const {
     query: { id },
     method,
     body,
-  } = req as { query: { id?: string }; method: string; body?: Partial<Dentist> }
+  } = req 
 
   switch (method) {
     case 'GET':

@@ -1,22 +1,14 @@
 import { NextApiResponse } from 'next'
 
-import { PrismaDelegate } from '@/types/prismaDelegate'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
+import { ClinicDelegate, UserDelegate, DentistDelegate, TicketDelegate, ProductDelegate } from '@/types/prismaDelegate'
 
-/**
- * Handles the PATCH request to update a record in the database.
- *
- * @param {RequestProps} req - The request object containing the HTTP method and body.
- * @param {NextApiResponse} res - The response object used to send the HTTP response.
- * @param {PrismaDelegate<unknown>} model - The Prisma model used to interact with the database.
- * @return {Promise<void>} A promise that resolves when the response is sent.
- */
 export default async function handler(
   req: RequestProps,
   res: NextApiResponse,
-  model: PrismaDelegate<unknown>,
+  model: ClinicDelegate | UserDelegate | DentistDelegate | TicketDelegate | ProductDelegate,
 ) {
   if (req.method !== 'PATCH') {
     res.setHeader('Allow', ['PATCH'])

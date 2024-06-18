@@ -1,22 +1,21 @@
 import { NextApiResponse } from 'next'
 
-import { PrismaDelegate } from '@/types/prismaDelegate'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
+import {
+  ClinicDelegate,
+  UserDelegate,
+  DentistDelegate,
+  TicketDelegate,
+  ProductDelegate,
+} from '@/types/prismaDelegate'
 
-/**
- * Handles the DELETE request for deleting a resource.
- *
- * @param {Pick<RequestProps, 'method' | 'body'>} req - The request object containing the method and body.
- * @param {NextApiResponse} res - The response object.
- * @param {PrismaDelegate<unknown>} model - The PrismaDelegate representing the model for the resource.
- * @return {Promise<void>} - Returns a promise that resolves to void.
- */
+
 export default async function handler(
   req: Pick<RequestProps, 'method' | 'body'>,
   res: NextApiResponse,
-  model: PrismaDelegate<unknown>,
+  model: ClinicDelegate | UserDelegate | DentistDelegate | TicketDelegate | ProductDelegate,
 ) {
   if (req.method !== 'DELETE') {
     res.setHeader('Allow', ['DELETE'])
