@@ -1,30 +1,30 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 
+import { PrismaDelegate } from '@/types/prismaDelegate'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
+import { RequestProps } from '@/types/RequestProps'
+
 
 /**
- * Handles a GET request to retrieve a record from the specified model.
+ * Handles the GET request to retrieve a record from the database.
  *
- * @param {NextApiRequest} req - The incoming request object.
- * @param {NextApiResponse} res - The outgoing response object.
- * @param {any} model - The model to retrieve the record from.
+ * @param {Pick<RequestProps, 'method' | 'query'>} req - The request object containing the HTTP method and query parameters.
+ * @param {NextApiResponse} res - The response object used to send the HTTP response.
+ * @param {PrismaDelegate<unknown>} model - The Prisma model used to interact with the database.
  * @return {Promise<void>} A promise that resolves when the response is sent.
- *                          If the request method is not GET, returns a 405 status code.
- *                          If the record is not found, returns a 404 status code.
- *                          If an error occurs, returns a 500 status code.
  */
 export default async function handler(
-  req: NextApiRequest,
+  req: Pick<RequestProps, 'method' | 'query'>,
   res: NextApiResponse,
-  model: any,
+  model: PrismaDelegate<unknown>,
 ) {
   if (req.method !== 'GET') {
     res.setHeader('Allow', ['GET'])
     return res.status(405).end(`Metodo ${req.method} no permitido`)
   }
   try {
-    const { id }: any = req.query
+    const { id }= req.query
 
     const record = await dataService.getById(model, id)
 

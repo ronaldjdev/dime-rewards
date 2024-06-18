@@ -1,21 +1,22 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 
+import { PrismaDelegate } from '@/types/prismaDelegate'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
-
+import { RequestProps } from '@/types/RequestProps'
 
 /**
- * Handles the creation of a record in the database.
+ * Handles the POST request for creating a resource.
  *
- * @param {NextApiRequest} req - The request object.
+ * @param {Pick<RequestProps, 'method' | 'body'>} req - The request object containing the method and body.
  * @param {NextApiResponse} res - The response object.
- * @param {any} model - The model to create the record in.
- * @return {Promise<void>} A promise that resolves when the record is created successfully, or rejects with an error.
+ * @param {PrismaDelegate<unknown>} model - The PrismaDelegate representing the model for the resource.
+ * @return {Promise<void>} - Returns a promise that resolves to void.
  */
 export default async function handler(
-  req: NextApiRequest,
+  req: Pick<RequestProps, 'method' | 'body'>,
   res: NextApiResponse,
-  model: any,
+  model: PrismaDelegate<unknown>,
 ) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST'])

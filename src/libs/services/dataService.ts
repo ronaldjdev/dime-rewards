@@ -1,3 +1,5 @@
+import { PrismaDelegate } from "@/types/prismaDelegate"
+
 /**
  * Servicio de datos para realizar operaciones CRUD con modelos de base de datos.
  */
@@ -110,13 +112,4 @@ export const dataService = {
       throw new Error(`Error al eliminar el elemento`)
     }
   },
-}
-
-// Definición de PrismaDelegate para tipar los modelos de Prisma
-interface PrismaDelegate<T> {
-  findMany: () => Promise<T[]>
-  findUnique: (args: { where: { id: string } }) => Promise<T | null>
-  create: (args: { data: Omit<T, 'id'> }) => Promise<T>
-  update: (args: { where: { id: string }; data: Omit<T, 'id'> }) => Promise<T>
-  delete: (args: { where: { id: string } }) => Promise<void>
 }

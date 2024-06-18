@@ -1,23 +1,17 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 
-import { messageCRUD} from "@/libs/message"
+import { PrismaDelegate } from '@/types/prismaDelegate'
+import { RequestProps } from '@/types/RequestProps'
+import { messageCRUD } from '@/libs/message'
 
 import update from './update'
 import destroy from './delete'
 import detail from './detail'
 
-/**
- * Handles API requests for a specific resource identified by an ID.
- *
- * @param {NextApiRequest} req - The request object.
- * @param {NextApiResponse} res - The response object.
- * @param {any} model - The model used to handle the request.
- * @return {Promise<void>} - A promise that resolves when the request is handled.
- */
-export default function handler(
-  req: NextApiRequest,
+export default async function handler(
+  req: RequestProps,
   res: NextApiResponse,
-  model: any,
+  model: PrismaDelegate<unknown>,
 ) {
   const {
     query: { id },
@@ -29,33 +23,32 @@ export default function handler(
     case 'GET':
       try {
         if (id) {
-          return detail(req, res, model)
+          await detail(req, res, model)
         }
       } catch (error) {
-        return res.status(500).json({ error: messageCRUD.error.id.invalid })
+        res.status(500).json({ error: messageCRUD.error.id.invalid })
       }
+      break
     case 'PATCH':
       try {
         if (!body) {
-          res
-            .status(400)
-            .json({ error: messageCRUD.error.body })
-          return
+          res.status(400).json({ error: messageCRUD.error.body })
         }
-        return update(req, res, model)
+        await update(req, res, model)
       } catch (error) {
         res.status(500).json({ error: messageCRUD.error })
       }
+      break
     case 'DELETE':
       try {
         if (!id) {
           res.status(400).json({ error: messageCRUD.error.id.missing })
-          return
         }
-        return destroy(req, res, model)
+        await destroy(req, res, model)
       } catch (error) {
         res.status(500).json({ error: messageCRUD.error.delete })
       }
+      break
     default:
       res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE'])
       res.status(405).end(`Método ${method} no permitido`)
