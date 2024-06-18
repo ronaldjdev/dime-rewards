@@ -4,11 +4,10 @@ import { RequestProps } from '@/types/RequestProps'
 import detail from '@/libs/services/handler/detail'
 import update from '@/libs/services/handler/update'
 import destroy from '@/libs/services/handler/delete'
-import prisma from '@/libs/prisma'
 import { messageCRUD } from '@/libs/message'
-import { ClinicDelegate } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/prismaDelegate'
 
-const model: ClinicDelegate = prisma.clinic
+const model: ModelName = 'clinic'
 
 export default async function handler(req: RequestProps, res: NextApiResponse) {
   const {

@@ -3,19 +3,18 @@ import { NextApiResponse } from 'next'
 import detail from '@/libs/services/handler/detail'
 import update from '@/libs/services/handler/update'
 import destroy from '@/libs/services/handler/delete'
-import prisma from '@/libs/prisma'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
-import { DentistDelegate } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/prismaDelegate'
 
-const model: DentistDelegate = prisma.dentist
+const model: ModelName = 'dentist'
 
 export default async function handler(req: RequestProps, res: NextApiResponse) {
   const {
     query: { id },
     method,
     body,
-  } = req 
+  } = req
 
   switch (method) {
     case 'GET':

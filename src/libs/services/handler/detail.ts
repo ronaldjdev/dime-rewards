@@ -3,13 +3,12 @@ import { NextApiResponse } from 'next'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
-import { ClinicDelegate, UserDelegate, DentistDelegate, TicketDelegate, ProductDelegate } from '@/types/prismaDelegate'
-
+import { ModelName } from '@/types/prismaDelegate'
 
 export default async function handler(
-  req: Pick<RequestProps, 'method' | 'query'>,
+  req: RequestProps,
   res: NextApiResponse,
-  model: ClinicDelegate | UserDelegate | DentistDelegate | TicketDelegate | ProductDelegate,
+  model: ModelName,
 ) {
   if (req.method !== 'GET') {
     res.setHeader('Allow', ['GET'])

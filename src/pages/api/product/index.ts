@@ -3,11 +3,10 @@ import { NextApiResponse } from 'next'
 import create from '@/libs/services/handler/create'
 import list from '@/libs/services/handler/read'
 import { messageCRUD } from '@/libs/message'
-import prisma from '@/libs/prisma'
 import { RequestProps } from '@/types/RequestProps'
-import { ProductDelegate } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/prismaDelegate'
 
-const model: ProductDelegate = prisma.product
+const model: ModelName = 'product'
 
 export default async function handler(
   req: RequestProps,

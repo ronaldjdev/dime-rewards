@@ -1,6 +1,6 @@
 import { NextApiResponse } from 'next'
 
-import { PrismaDelegate } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/prismaDelegate'
 import { RequestProps } from '@/types/RequestProps'
 import { messageCRUD } from '@/libs/message'
 
@@ -11,7 +11,7 @@ import detail from './detail'
 export default async function handler(
   req: RequestProps,
   res: NextApiResponse,
-  model: PrismaDelegate<unknown>,
+  model: ModelName,
 ) {
   const {
     query: { id },
