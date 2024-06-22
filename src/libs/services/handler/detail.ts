@@ -16,7 +16,6 @@ export default async function handler(
   }
   try {
     const { id } = req.query
-
     const record = await dataService.getById(model, id)
 
     if (!record) {

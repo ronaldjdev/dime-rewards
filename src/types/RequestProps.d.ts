@@ -15,4 +15,3 @@ export interface RequestProps extends NextApiRequest {
   method: string
   body: Partial<Clinic | Product | Dentist | User | Ticket>
 }
-

@@ -3,14 +3,12 @@ import { NextApiResponse } from 'next'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
-import { ModelName } from "@/types/prismaDelegate"
-
-
+import { ModelName } from '@/types/prismaDelegate'
 
 export default async function handler(
   req: Pick<RequestProps, 'method' | 'body'>,
   res: NextApiResponse,
-  model: ModelName ,
+  model: ModelName,
 ) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST'])

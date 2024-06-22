@@ -14,21 +14,21 @@ export const userAccess = [
 
 export const cardData = [
   {
-    title: 'Descuentos exclusivos',
+    title: 'Capacitación continua',
     description:
-      'Canjea tus puntos por descuentos exclusivos en una amplia gama de insumos dentales, asegurándote siempre el mejor valor.',
+      'Accede a seminarios y cursos de actualización para mantenerte al día con las últimas técnicas y tecnologías.',
     borderColor: 'border border-black',
   },
   {
-    title: 'Acceso a productos',
+    title: 'Networking exclusivo',
     description:
-      'Utiliza tus puntos para obtener acceso prioritario a los últimos productos y tecnologías dentales.',
+      'Participa en eventos y encuentros exclusivos con otros profesionales de la salud oral para intercambiar conocimientos y experiencias.',
     bgColor: 'bg-sky-100',
   },
   {
-    title: 'Reconocimiento a tu preferencia',
+    title: 'Consultoría personalizada',
     description:
-      'Reconocemos y valoramos tu preferencia. A medida que continúas eligiendo DIME, te recompensamos con beneficios adicionales y experiencias personalizadas.',
-    bgColor: 'bg-indigo-200',
+      'Recibe asesoramiento especializado para optimizar la gestión y el crecimiento de tu clínica dental',
+    bgColor: 'bg-purple-100',
   },
 ]

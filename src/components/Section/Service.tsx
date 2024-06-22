@@ -6,18 +6,17 @@ const dataService = [
     title: 'Descuentos Exclusivos',
     description:
       'Aprovecha precios especiales en una amplia gama de insumos odontológicos.',
-    bgColor: 'bg-sky-100 text-black',
+    bgColor: 'bg-lime-100 text-black',
   },
   {
-    title: 'Descuentos Exclusivos',
+    title: 'Servicios personalizados',
     description:
-      'Aprovecha precios especiales en una amplia gama de insumos odontológicos.',
-    bgColor: 'bg-sky-100 text-black',
+      'Disfruta de atención personalizada y recomendaciones basadas en tus preferencias.',
+    bgColor: 'bg-orange-100 text-black',
   },
   {
-    title: 'Descuentos Exclusivos',
-    description:
-      'Aprovecha precios especiales en una amplia gama de insumos odontológicos.',
+    title: 'Reservas prioritarias',
+    description: 'Ofrece la posibilidad de reservar productos con antelación.',
     bgColor: 'bg-sky-100 text-black',
   },
 ]

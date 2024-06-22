@@ -9,8 +9,7 @@ import { ModelName } from '@/types/prismaDelegate'
 const model: ModelName = 'user'
 
 export default async function handler(req: RequestProps, res: NextApiResponse) {
-
-  const { method, body } = req 
+  const { method, body } = req
 
   switch (method) {
     case 'POST':

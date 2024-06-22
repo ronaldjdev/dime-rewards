@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-full">
       <Navbar />
       <main className="h-screen flex flex-col items-center justify-center">
         {children}

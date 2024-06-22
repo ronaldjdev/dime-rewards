@@ -8,11 +8,8 @@ import { RequestProps } from '@/types/RequestProps'
 
 const model: ModelName = 'clinic'
 
-export default async function handler(
-  req: RequestProps,
-  res: NextApiResponse,
-) {
-  const { method, body } = req 
+export default async function handler(req: RequestProps, res: NextApiResponse) {
+  const { method, body } = req
 
   switch (method) {
     case 'POST':

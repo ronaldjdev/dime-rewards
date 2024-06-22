@@ -9,15 +9,12 @@ import { ModelName } from '@/types/prismaDelegate'
 
 const model: ModelName = 'ticket'
 
-export default async function handler(
-  req: RequestProps,
-  res: NextApiResponse,
-) {
+export default async function handler(req: RequestProps, res: NextApiResponse) {
   const {
     query: { id },
     method,
     body,
-  } = req 
+  } = req
 
   switch (method) {
     case 'GET':

@@ -5,7 +5,7 @@ import update from '@/libs/services/handler/update'
 import destroy from '@/libs/services/handler/delete'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
-import { ModelName } from "@/types/prismaDelegate"
+import { ModelName } from '@/types/prismaDelegate'
 
 const model: ModelName = 'user'
 
@@ -14,7 +14,7 @@ export default async function handler(req: RequestProps, res: NextApiResponse) {
     query: { id },
     method,
     body,
-  } = req 
+  } = req
 
   switch (method) {
     case 'GET':

@@ -8,11 +8,8 @@ import { ModelName } from '@/types/prismaDelegate'
 
 const model: ModelName = 'product'
 
-export default async function handler(
-  req: RequestProps,
-  res: NextApiResponse,
-) {
-  const { method, body } = req 
+export default async function handler(req: RequestProps, res: NextApiResponse) {
+  const { method, body } = req
 
   switch (method) {
     case 'POST':

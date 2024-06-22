@@ -6,7 +6,7 @@ import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
 import { ModelName } from '@/types/prismaDelegate'
 
-const model: ModelName ='dentist'
+const model: ModelName = 'dentist'
 
 export default async function handler(req: RequestProps, res: NextApiResponse) {
   const { method, body } = req

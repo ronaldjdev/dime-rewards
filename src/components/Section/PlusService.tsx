@@ -19,8 +19,12 @@ const PlusService = () => {
         </p>
         <Button color="black" variant="outline" title="empezar" />
       </div>
-      <div className="w-1/2 flex h-full justify-center items-center bg-sky-100 rounded-2xl">
-        <img className="w-96 h-96" src="./logo_dime_rewards.png" alt="logo" />
+      <div className="w-1/2 flex h-full justify-center items-center bg-purple-100 rounded-2xl">
+        <img
+          className="w-full h-full object-cover"
+          src="./doctora_con_telefono.png"
+          alt="logo"
+        />
       </div>
     </div>
   )
