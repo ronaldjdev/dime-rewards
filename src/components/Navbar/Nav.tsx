@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
-import { Button } from '@/components/Button'
-import { Brand } from '@/components/Brand'
+import { Button } from '@/components/Button/Button'
+import { Brand } from '@/components/Button/Brand'
 import { navbarOptions as itemsNav } from '@/libs/utils'
 import NavLink from '@/components/Navbar/NavItem'
 
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
   }, [])
   return (
     <nav
-      className={` ${scrolled ? 'border-b-2 shadow-md transition-shadow duration-300 ease-in-out' : ''}  w-full flex items-center justify-center py-2 px-4 sticky z-10 top-0 bg-white ${scrolled ? 'border-b-2 border-gray-300' : ''} `}
+      className={` ${scrolled ? 'border-b-2 shadow-md transition-shadow duration-300 ease-in-out' : ''}  w-full flex items-center justify-center py-2 px-4 sticky z-50 top-0 bg-white ${scrolled ? 'border-b-2 border-gray-300' : ''} `}
     >
       <div className="max-w-[1970px] flex items-center justify-between w-full ">
         <Brand />
@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
             </NavLink>
           ))}
         </div>
-        <Button title="Iniciar sesion" color="black" />
+        <Button href="/auth/login" title="Iniciar sesion" color="black" />
       </div>
     </nav>
   )

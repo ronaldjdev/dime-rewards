@@ -5,7 +5,7 @@ import ProfileImage from '@/components/Profile/ProfileImage'
 import Frontpage from '@/components/Profile/Frontpage'
 import SocialMedia from '@/components/SocialMedia'
 import StatItem from '@/components/StatItem'
-import { Button } from '@/components/Button'
+import { Button } from '@/components/Button/Button'
 import Timeline from '@/components/Timeline'
 import About from '@/components/Profile/AboutProfile'
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import { Navbar } from '@/components/Navbar/Navbar'
 import '@/app/globals.css'
-import { Sidebar } from '@/components/Sidebar'
+import { Sidebar } from '@/components/Bar/Sidebar'
 
 export const metadata: Metadata = {
   title: 'Dashboard | DIME Rewards',

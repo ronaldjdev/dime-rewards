@@ -1,6 +1,6 @@
-import SimpleHeader from './SimpleHeader'
-import TestimonialCard from './TestimonialCard'
-import MainImage from './MainImage'
+import SimpleHeader from '@/components/Title/SimpleHeader'
+import TestimonialCard from '@/components/Card/TestimonialCard'
+import MainImage from '@/components/Card/MainImage'
 
 const Testimonial: React.FC = () => {
   return (
@@ -51,11 +51,11 @@ const Testimonial: React.FC = () => {
         </div>
         <div className="w-1/2 h-full flex flex-col">
           <div className="flex flex-col w-full h-full gap-2">
-            <div className="w-full h-full bg-black rounded-2x">
+            <div className="w-full h-full rounded-2x">
               <MainImage image="https://img.freepik.com/fotos-premium/cara-pantalla-verde-mujer-signo-ok-sonrisa-aprobacion-contra-fondo-estudio-retrato-femenino-persona-simbolo-gesto-mano-perfecto-apoyo-motivacion-felicidad_590464-162984.jpg?w=996" />
             </div>
             <div className="flex gap-2">
-              <div className="flex-1 h-64 bg-black rounded-2xl text-white">
+              <div className="flex-1 h-64 rounded-2xl text-white">
                 <TestimonialCard
                   name="Dra. María Fernanda Ramírez"
                   text="Transformó mi clínica. Los descuentos y el acceso prioritario son maravillosos."

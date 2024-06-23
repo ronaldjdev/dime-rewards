@@ -5,7 +5,7 @@ import {
   CiCalendarDate as Event,
 } from 'react-icons/ci'
 
-import SidebarIcon from '@/components/SidebarIcon'
+import SidebarIcon from '@/components/Bar/SidebarIcon'
 
 interface ItemsProps {
   icon: JSX.Element

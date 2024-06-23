@@ -5,9 +5,9 @@ import {
   CiBellOn as IconNoti,
 } from 'react-icons/ci'
 
-import { Button } from '@/components/Button'
-import { Searchbar } from '@/components/Searchbar'
-import { Progressbar } from '@/components/Progressbar'
+import { Button } from '@/components/Button/Button'
+import { Searchbar } from '@/components/Bar/Searchbar'
+import { Progressbar } from '@/components/Bar/Progressbar'
 
 import NavLink from './NavItem'
 

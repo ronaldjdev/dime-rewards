@@ -1,8 +1,8 @@
 import { cardData } from '@/libs/utils'
-import MainImage from '@/components/Section/MainImage'
+import MainImage from '@/components/Card/MainImage'
+import Cards from '@/components/Card/Cards'
+import CardItem from '@/components/Card/CardItem'
 
-import Cards from './Cards'
-import CardItem from './CardItem'
 import Header from './HeaderSection'
 
 const Benefits = () => {

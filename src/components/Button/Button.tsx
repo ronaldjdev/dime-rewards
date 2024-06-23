@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import Link from 'next/link'
 
 interface Props {
   title: string
@@ -6,6 +7,7 @@ interface Props {
   color?: 'green' | 'blue' | 'red' | 'white' | 'black'
   onClick?: () => void
   type?: 'button' | 'submit'
+  href?: string
 }
 
 /**
@@ -26,6 +28,7 @@ export const Button: React.FC<Props> = ({
   color = 'blue',
   onClick,
   type = 'button',
+  href = "/",
   ...rest
 }) => {
   const baseClasses =
@@ -65,13 +68,15 @@ export const Button: React.FC<Props> = ({
   )
 
   return (
-    <button
-      className={`${baseClasses} ${variantClasses[variant][color]}`}
-      onClick={onClick}
-      type={type}
-      {...rest}
-    >
-      {title}
-    </button>
+    <Link href={href} passHref>
+      <button
+        className={`${baseClasses} ${variantClasses[variant][color]}`}
+        onClick={onClick}
+        type={type}
+        {...rest}
+      >
+        {title}
+      </button>
+    </Link>
   )
 }

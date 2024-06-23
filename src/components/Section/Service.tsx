@@ -1,5 +1,5 @@
 import HeaderSection from '@/components/Section/HeaderSection'
-import Cards from '@/components/Section/Cards'
+import Cards from '@/components/Card/Cards'
 
 const dataService = [
   {
