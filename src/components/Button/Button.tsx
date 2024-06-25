@@ -28,7 +28,7 @@ export const Button: React.FC<Props> = ({
   color = 'blue',
   onClick,
   type = 'button',
-  href = "/",
+  href = '/',
   ...rest
 }) => {
   const baseClasses =

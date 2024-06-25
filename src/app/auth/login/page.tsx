@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { GoArrowLeft } from "react-icons/go";
+import { GoArrowLeft } from 'react-icons/go'
 
 import { Brand } from '@/components/Button/Brand'
 import { Button } from '@/components/Button/Button'
 import SimpleHeader from '@/components/Title/SimpleHeader'
 import Input from '@/components/Input'
-import ButtonCircle from "@/components/Button/ButtonCircle"
+import ButtonCircle from '@/components/Button/ButtonCircle'
 
 const Login: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const Login: React.FC = () => {
       <Brand />
       <div className="w-full h-full flex overflow-hidden rounded-2xl">
         <div className="w-1/2 h-full bg-black relative">
-          <ButtonCircle href="/" icon={<GoArrowLeft />}/>
+          <ButtonCircle href="/" icon={<GoArrowLeft />} />
         </div>
         <div className="bg-white h-full justify-center p-8 mb-4 flex flex-col w-1/2">
           <SimpleHeader title="Iniciar sesión" />

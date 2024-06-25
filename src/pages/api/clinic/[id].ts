@@ -5,7 +5,7 @@ import detail from '@/libs/services/handler/detail'
 import update from '@/libs/services/handler/update'
 import destroy from '@/libs/services/handler/delete'
 import { messageCRUD } from '@/libs/message'
-import { ModelName } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/modelName'
 
 const model: ModelName = 'clinic'
 

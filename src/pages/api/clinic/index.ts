@@ -3,7 +3,7 @@ import { NextApiResponse } from 'next'
 import create from '@/libs/services/handler/create'
 import list from '@/libs/services/handler/read'
 import { messageCRUD } from '@/libs/message'
-import { ModelName } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/modelName'
 import { RequestProps } from '@/types/RequestProps'
 
 const model: ModelName = 'clinic'

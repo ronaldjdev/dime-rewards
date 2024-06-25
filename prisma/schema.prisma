@@ -30,11 +30,14 @@ model User {
   // Relación con Odontólogo
   dentist Dentist?
 
-  //Relación con Clínicas Odontológicas creadas por el user
-  clinics      Clinic[]
+  // Relación con Clínicas Odontológicas creadas por el user
+  clinic       Clinic[]
   createAt     DateTime       @default(now())
   updateAt     DateTime       @updatedAt
-  Notification Notification[]
+  notification Notification[]
+
+  // Relación con Productos creados por el user
+  products Product[]
 }
 
 // Modelo de Odontólogo
@@ -95,6 +98,10 @@ model Product {
   image       String
   createAt    DateTime @default(now())
   updateAt    DateTime @updatedAt
+
+  // Relación con User creador del producto
+  creator   User   @relation(fields: [creatorId], references: [id])
+  creatorId String
 }
 
 model SocialMedia {
@@ -108,7 +115,7 @@ model SocialMedia {
 }
 
 model Notification {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   type      String // Tipo de notificación: "like", "comment", etc.
   content   String // Contenido de la notificación
   read      Boolean  @default(false)

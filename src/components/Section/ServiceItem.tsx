@@ -1,6 +1,6 @@
 import { GoArrowUpRight } from 'react-icons/go'
 
-import ButtonCircle from "@/components/Button/ButtonCircle"
+import ButtonCircle from '@/components/Button/ButtonCircle'
 
 interface CardItemProps {
   title: string
@@ -9,12 +9,11 @@ interface CardItemProps {
   href?: string
 }
 
-
 const ServiceItem: React.FC<CardItemProps> = ({
   title,
   description,
   bgColor = '',
-  href = "/"
+  href = '/',
 }) => {
   return (
     <div

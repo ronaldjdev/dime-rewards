@@ -1,6 +1,6 @@
 import { NextApiResponse } from 'next'
 
-import { ModelName } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/modelName'
 import { RequestProps } from '@/types/RequestProps'
 import { messageCRUD } from '@/libs/message'
 

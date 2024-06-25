@@ -3,7 +3,7 @@ import { NextApiResponse } from 'next'
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
 import { RequestProps } from '@/types/RequestProps'
-import { ModelName } from '@/types/prismaDelegate'
+import { ModelName } from '@/types/modelName'
 
 export default async function handler(
   req: Pick<RequestProps, 'method' | 'body'>,
