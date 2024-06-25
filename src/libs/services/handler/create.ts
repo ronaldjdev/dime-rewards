@@ -1,13 +1,14 @@
-import { NextApiResponse } from 'next'
-import bcrypt from 'bcrypt'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
-import { RequestProps } from '@/types/RequestProps'
-import { ModelName } from '@/types/modelName'
+import ModelName from '@/types/modelName'
+import ModelTypes from '@/types/modelTypes'
+
+import isModelName from '../isModelName'
 
 export default async function handler(
-  req: Pick<RequestProps, 'method' | 'body'>,
+  req: NextApiRequest,
   res: NextApiResponse,
   model: ModelName,
 ) {
@@ -15,16 +16,14 @@ export default async function handler(
     res.setHeader('Allow', ['POST'])
     return res.status(405).end(`Metodo ${req.method} no permitido`)
   }
+  if (!isModelName(model)) {
+    return res
+      .status(400)
+      .json({ error: `Modelo ${String(model)} no encontrado` })
+  }
+
   try {
-    const reqData = req.body
-
-    // Check if password is in the request body and hash it
-    if (reqData.password) {
-      const saltRounds = 10 // Adjust the salt rounds as needed
-      const hashedPassword = await bcrypt.hash(reqData.password, saltRounds)
-      reqData.password = hashedPassword
-    }
-
+    const reqData = req.body as ModelTypes[keyof ModelTypes]
     const createdRecord = await dataService.create(model, { ...reqData })
     const data = {
       message: messageCRUD.success.create,

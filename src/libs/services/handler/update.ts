@@ -1,12 +1,12 @@
-import { NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 import { dataService } from '@/libs/services/dataService'
 import { messageCRUD } from '@/libs/message'
-import { RequestProps } from '@/types/RequestProps'
-import { ModelName } from '@/types/modelName'
+import ModelName from '@/types/modelName'
+import ModelTypes from '@/types/modelTypes'
 
 export default async function handler(
-  req: RequestProps,
+  req: NextApiRequest,
   res: NextApiResponse,
   model: ModelName,
 ) {
@@ -16,7 +16,10 @@ export default async function handler(
   }
   try {
     const { id } = req.query
-    const reqData = req.body
+    if (typeof id !== 'string') {
+      return res.status(400).json({ error: messageCRUD.error.id.missing })
+    }
+    const reqData = req.body as ModelTypes[keyof ModelTypes]
 
     const record = await dataService.update(model, id, reqData)
     const data = {

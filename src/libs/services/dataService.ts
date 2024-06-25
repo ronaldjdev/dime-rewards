@@ -1,13 +1,14 @@
-import ModelName from '@/types/modelName'
 import ModelTypes from '@/types/modelTypes'
+import ModelName from '@/types/modelName'
+import { PaginatedArgs } from '@/types/prismaModel'
 
-import isModelName from './isModelName'
 import getModel from './getModel'
-
+import isModelName from './isModelName'
 
 export const dataService = {
   async getAll<T extends keyof ModelTypes>(
     modelName: T,
+    paginationArgs?: PaginatedArgs,
   ): Promise<ModelTypes[T][]> {
     if (!isModelName(modelName)) {
       throw new Error(`Model ${String(modelName)} not found`)
@@ -15,7 +16,7 @@ export const dataService = {
 
     try {
       const model = getModel(modelName)
-      return await model.findMany()
+      return await model.findMany(paginationArgs)
     } catch (error) {
       throw new Error(`Error al obtener los datos: ${(error as Error).message}`)
     }

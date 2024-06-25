@@ -10,6 +10,7 @@ export const messageCRUD = {
     read: 'Error al obtener el recurso',
     update: 'Error al actualizar el recurso',
     delete: 'Error al eliminar el recurso',
+    notResource: 'No hay recursos para mostrar',
     id: {
       missing: 'El ID es obligatorio',
       invalid: 'El ID proporcionado no es válido',
