@@ -7,7 +7,7 @@ import { messageCRUD } from '@/libs/message'
 import ModelName from '@/types/modelName'
 import ModelTypes from '@/types/modelTypes'
 
-const model: ModelName = 'ticket'
+const model: ModelName = 'badge'
 
 export default async function handler(
   req: NextApiRequest,

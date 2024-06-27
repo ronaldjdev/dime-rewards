@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/Button/Button'
-import { Brand } from '@/components/Button/Brand'
+import Brand from '@/components/Button/Brand'
 import { navbarOptions as itemsNav } from '@/libs/utils'
 import NavLink from '@/components/Navbar/NavItem'
 

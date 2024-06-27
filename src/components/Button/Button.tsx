@@ -80,3 +80,5 @@ export const Button: React.FC<Props> = ({
     </Link>
   )
 }
+
+export default Button

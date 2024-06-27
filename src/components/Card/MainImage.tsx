@@ -1,16 +1,15 @@
-interface MainImageProps {
+interface MainImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   image: string
 }
 
-const MainImage: React.FC<MainImageProps> = ({ image }) => {
+const MainImage: React.FC<MainImageProps> = ({ image, ...rest }) => {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-lightblue-100 rounded-2xl">
-      <img
-        src={image}
-        alt="Main"
-        className="w-full h-full object-cover rounded-2xl"
-      />
-    </div>
+    <img
+      {...rest}
+      src={image}
+      alt="Main"
+      className="w-full h-full object-cover"
+    />
   )
 }
 

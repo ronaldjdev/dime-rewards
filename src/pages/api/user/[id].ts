@@ -16,9 +16,9 @@ export default async function handler(
   const {
     query: { id },
     method,
-     } = req
+  } = req
 
-     const body = req.body as ModelTypes[keyof ModelTypes]
+  const body = req.body as ModelTypes[keyof ModelTypes]
 
   switch (method) {
     case 'GET':

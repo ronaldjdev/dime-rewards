@@ -1,4 +1,4 @@
-// import logo2 from "../../public/icon-192x192.png"
+import Link from 'next/link'
 /**
  * Renders the Sidebar component.
  *
@@ -6,14 +6,21 @@
  */
 export const Brand: React.FC = () => {
   return (
-    <a href="/" className="h-10">
+    <Link
+      href="/"
+      className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
+      passHref
+    >
       <img
-        src="/icon-192x192.png"
-        alt="loguo"
-        className="h-full w-full object-cover"
-        width={0}
-        height={0}
+        src="https://res.cloudinary.com/dcekvcyvf/image/upload/v1719498552/g6fttmnzhjaj2pxmuh89.png"
+        alt="Dime Logo"
+        className="h-8"
       />
-    </a>
+      <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">
+        Dime
+      </span>
+    </Link>
   )
 }
+
+export default Brand

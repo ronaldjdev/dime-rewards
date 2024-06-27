@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 import { Prisma } from '@prisma/client'
 
 interface ModelTypes {
@@ -8,6 +9,8 @@ interface ModelTypes {
   ticket: Prisma.TicketCreateInput | Prisma.TicketUpdateInput
   socialMedia: Prisma.SocialMediaCreateInput | Prisma.SocialMediaUpdateInput
   notification: Prisma.NotificationCreateInput | Prisma.NotificationUpdateInput
+  badge: Prisma.BadgeCreateInput | Prisma.BadgeUpdateInput
+  category: Prisma.CategoryCreateInput | Prisma.CategoryUpdateInput
 }
 
 export default ModelTypes

@@ -10,7 +10,7 @@ const Testimonial: React.FC = () => {
         <h2 className="w-fit text-white">2024</h2>
       </div>
       <div className="w-full flex h-full justify-start items-center gap-2 z-10">
-        <div className="w-1/2 flex flex-col">
+        <div className="w-1/2 flex flex-col h-full">
           <SimpleHeader
             color="text-white"
             title="lo que dicen nuestros clientes"
@@ -49,37 +49,31 @@ const Testimonial: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 h-full flex flex-col">
-          <div className="flex flex-col w-full h-full gap-2">
-            <div className="w-full h-full rounded-2x">
-              <MainImage image="https://img.freepik.com/fotos-premium/cara-pantalla-verde-mujer-signo-ok-sonrisa-aprobacion-contra-fondo-estudio-retrato-femenino-persona-simbolo-gesto-mano-perfecto-apoyo-motivacion-felicidad_590464-162984.jpg?w=996" />
+        <div className="w-1/2 h-full flex flex-col gap-2">
+          <div className="w-full h-full rounded-2xl">
+            <MainImage image="https://res.cloudinary.com/dcekvcyvf/image/upload/v1719459212/ht32hp0iytvkfwutuisn.jpg" />
+          </div>
+          <div className="flex gap-2 w-full h-full">
+            <div className="flex-1 h-64 rounded-2xl text-white">
+              <TestimonialCard
+                name="Dra. María Fernanda Ramírez"
+                text="Transformó mi clínica. Los descuentos y el acceso prioritario son maravillosos."
+                profession="Odontóloga General"
+                bgColor="bg-white text-black"
+              />
             </div>
-            <div className="flex gap-2">
-              <div className="flex-1 h-64 rounded-2xl text-white">
-                <TestimonialCard
-                  name="Dra. María Fernanda Ramírez"
-                  text="Transformó mi clínica. Los descuentos y el acceso prioritario son maravillosos."
-                  profession="Odontóloga General"
-                  bgColor="bg-white text-black"
-                />
-              </div>
-              <div className="flex-1 h-64 rounded-2xl text-white">
-                <TestimonialCard
-                  name="Dr. Andrés González"
-                  profession="Esp. en Ortodoncia"
-                  text="El plan de puntos me permitió actualizar mis equipos sin comprometer mi presupuesto. ¡Excelente!"
-                  bgColor="bg-white text-black"
-                />
-              </div>
+            <div className="flex-1 h-64 rounded-2xl text-white">
+              <TestimonialCard
+                name="Dr. Andrés González"
+                profession="Esp. en Ortodoncia"
+                text="El plan de puntos me permitió actualizar mis equipos sin comprometer mi presupuesto. ¡Excelente!"
+                bgColor="bg-white text-black"
+              />
             </div>
           </div>
         </div>
       </div>
-      <img
-        src="./Lines.svg"
-        alt="pattern"
-        className="absolute w-full h-full object-cover z-0 opacity-5"
-      />
+      <div className="bg-testimonial-pattern opacity-5 absolute w-full h-full object-cover z-0"></div>
     </div>
   )
 }

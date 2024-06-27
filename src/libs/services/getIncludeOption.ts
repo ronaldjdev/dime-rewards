@@ -10,6 +10,11 @@ const getIncludeOptions = (modelName: ModelName) => {
         clinic: true,
         notification: true,
         products: true,
+        badges: {
+          include: {
+            badge: true,
+          },
+        },
       }
     case 'dentist':
       return {
@@ -28,6 +33,11 @@ const getIncludeOptions = (modelName: ModelName) => {
     case 'product':
       return {
         creator: true,
+        category: true,
+      }
+    case 'category':
+      return {
+        products: true,
       }
     case 'socialMedia':
       return {
@@ -36,6 +46,14 @@ const getIncludeOptions = (modelName: ModelName) => {
     case 'notification':
       return {
         user: true,
+      }
+    case 'badge':
+      return {
+        users: {
+          include: {
+            user: true,
+          },
+        },
       }
     default:
       return {}

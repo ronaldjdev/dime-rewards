@@ -15,8 +15,9 @@ export type IncludeOptions = {
   user?: boolean
   clinics?: boolean
   creator?: boolean
+  badge?: boolean
+  category?: boolean
 }
-
 
 type PrismaModel<T extends keyof ModelTypes> = {
   findMany: (args?: {

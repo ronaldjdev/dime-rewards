@@ -29,6 +29,44 @@ const Register = () => {
                 required
               />
             </div>
+            <div>
+              <Input
+                label="Telefono"
+                type="tel"
+                name="phone"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="123-45-678"
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              />
+            </div>
+            <div>
+              <Input
+                label="Identificacion"
+                type="number"
+                name="identification"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Ingrese"
+                required
+              />
+            </div>
+            <div>
+              <Input
+                label="Direccion"
+                type="text"
+                name="address"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cll 26 AN #4-10"
+              />
+            </div>
+            <div>
+              <Input
+                label="Ciudad"
+                type="text"
+                name="city"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Popayan"
+              />
+            </div>
           </div>
           <div className="mb-6">
             <Input

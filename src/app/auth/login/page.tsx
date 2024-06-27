@@ -12,8 +12,17 @@ const Login: React.FC = () => {
     <div className="w-full h-full flex flex-col items-center py-10 px-28 gap-4 bg-sky-950">
       <Brand />
       <div className="w-full h-full flex overflow-hidden rounded-2xl">
-        <div className="w-1/2 h-full bg-black relative">
-          <ButtonCircle href="/" icon={<GoArrowLeft />} />
+        <div className="w-1/2 h-full bg-black relative flex justify-start items-center">
+          <img
+            src="https://res.cloudinary.com/dcekvcyvf/image/upload/v1719424243/ztjp3gxfl24bz6ynd1ub.svg"
+            alt="login"
+            className="absolute z-0 w-full h-full object-cover top-0"
+          />
+          <ButtonCircle
+            href="/"
+            icon={<GoArrowLeft />}
+            className="z-10 left-4 w-fit"
+          />
         </div>
         <div className="bg-white h-full justify-center p-8 mb-4 flex flex-col w-1/2">
           <SimpleHeader title="Iniciar sesión" />

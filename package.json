@@ -10,7 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
-    "@prisma/client": "5.15.1",
+    "@prisma/client": "^5.16.1",
     "bcrypt": "^5.1.1",
     "next": "14.2.3",
     "react": "^18",

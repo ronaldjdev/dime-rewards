@@ -6,5 +6,7 @@ type ModelName =
   | 'ticket'
   | 'socialMedia'
   | 'notification'
+  | 'badge'
+  | 'category'
 
 export default ModelName

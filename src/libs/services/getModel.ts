@@ -26,7 +26,6 @@ const getModel = <T extends keyof ModelTypes>(modelName: T): PrismaModel<T> => {
          */
         findMany: args => prisma.user.findMany({ ...args, include }),
 
-        
         /**
          * Find a unique user based on the provided 'where' condition and optional custom include.
          *
@@ -445,4 +444,3 @@ const getModel = <T extends keyof ModelTypes>(modelName: T): PrismaModel<T> => {
 }
 
 export default getModel
-

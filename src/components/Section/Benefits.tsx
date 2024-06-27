@@ -7,7 +7,10 @@ import Header from './HeaderSection'
 
 const Benefits = () => {
   return (
-    <div className="flex flex-col justify-center items-center px-10 gap-4 w-full box-border">
+    <section
+      id="benefits"
+      className="flex flex-col justify-center items-center px-10 gap-4 w-full box-border"
+    >
       <div className="flex flex-col justify-center items-center gap-1 w-full  font-grey-500">
         <Header
           title="beneficios innovadores para profecionales de la salud oral"
@@ -32,7 +35,7 @@ const Benefits = () => {
       <div className="flex justify-center items-center gap-1 w-full rounded-2xl">
         <Cards data={cardData} />
       </div>
-    </div>
+    </section>
   )
 }
 
