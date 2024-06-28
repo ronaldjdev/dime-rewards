@@ -21,7 +21,7 @@ model User {
   id             String  @id @default(uuid())
   name           String
   last_name      String
-  identification String  @unique
+  identification String?  @unique
   email          String  @unique
   password       String
   address        String?
