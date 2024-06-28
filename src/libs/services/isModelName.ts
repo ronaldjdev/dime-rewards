@@ -13,6 +13,7 @@ const isModelName = (modelName: unknown): modelName is ModelName => {
       'notification',
       'badge',
       'category',
+      'userBadge'
     ].includes(modelName)
   )
 }

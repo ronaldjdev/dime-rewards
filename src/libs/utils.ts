@@ -1,6 +1,6 @@
 export const navbarOptions = [
   { href: '/', name: 'Inicio' },
-  { href: '#benefits', name: 'Beneficios' },
+  { href: '/#benefits', name: 'Beneficios' },
   { href: '/badge', name: 'Insignias' },
   { href: '/offer', name: 'Ofertas' },
   { href: '/store', name: 'Tienda' },

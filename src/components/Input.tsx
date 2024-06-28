@@ -1,6 +1,6 @@
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string
-  name: string
+  name?: string
 }
 const Input: React.FC<Props> = ({ label, name, ...rest }) => {
   return (
@@ -13,8 +13,6 @@ const Input: React.FC<Props> = ({ label, name, ...rest }) => {
       </label>
       <input
         className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-        id={name}
-        name={name}
         {...rest}
       />
     </>

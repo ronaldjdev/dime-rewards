@@ -17,6 +17,7 @@ export type IncludeOptions = {
   creator?: boolean
   badge?: boolean
   category?: boolean
+  userBadge?: boolean
 }
 
 type PrismaModel<T extends keyof ModelTypes> = {
@@ -27,6 +28,10 @@ type PrismaModel<T extends keyof ModelTypes> = {
   }) => Promise<ModelTypes[T][]>
   findUnique: (args: {
     where: { id: string }
+    include?: IncludeOptions
+  }) => Promise<ModelTypes[T] | null>
+  findFirst: (args?: {
+    skip?: number
     include?: IncludeOptions
   }) => Promise<ModelTypes[T] | null>
   create: (
@@ -40,4 +45,5 @@ type PrismaModel<T extends keyof ModelTypes> = {
   }) => Promise<ModelTypes[T]>
   delete: (args: { where: { id: string } }) => Promise<void>
 }
+
 export default PrismaModel

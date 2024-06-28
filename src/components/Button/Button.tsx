@@ -1,13 +1,12 @@
 import React, { useMemo } from 'react'
 import Link from 'next/link'
 
-interface Props {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   title: string
   variant?: 'text' | 'outline' | 'filled'
   color?: 'green' | 'blue' | 'red' | 'white' | 'black'
-  onClick?: () => void
-  type?: 'button' | 'submit'
   href?: string
+  forms?: boolean
 }
 
 /**
@@ -26,9 +25,8 @@ export const Button: React.FC<Props> = ({
   title,
   variant = 'filled',
   color = 'blue',
-  onClick,
-  type = 'button',
   href = '/',
+  forms = false,
   ...rest
 }) => {
   const baseClasses =
@@ -38,9 +36,9 @@ export const Button: React.FC<Props> = ({
     () => ({
       text: {
         green:
-          'bg-transparent hover:bg-green-500 text-green-700 hover:text-white border border-green-500 hover:border-transparent',
-        blue: 'bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white border border-blue-500 hover:border-transparent',
-        red: 'bg-transparent hover:bg-red-500 text-red-700 hover:text-white border border-red-500 hover:border-transparent',
+          'bg-transparent hover:bg-green-500 text-green-700 hover:text-white  hover:border-transparent',
+        blue: 'bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white hover:border-transparent',
+        red: 'bg-transparent hover:bg-red-500 text-red-700 hover:text-white hover:border-transparent',
         white:
           'bg-transparent hover:bg-white text-white hover:text-black border border-white hover:border-transparent',
         black:
@@ -66,13 +64,20 @@ export const Button: React.FC<Props> = ({
     }),
     [],
   )
-
+  if (forms) {
+    return (
+      <button
+        className={`${baseClasses} ${variantClasses[variant][color]}`}
+        {...rest}
+      >
+        {title}
+      </button>
+    )
+  }
   return (
     <Link href={href} passHref>
       <button
         className={`${baseClasses} ${variantClasses[variant][color]}`}
-        onClick={onClick}
-        type={type}
         {...rest}
       >
         {title}

@@ -1,6 +1,6 @@
 import ModelTypes from '@/types/modelTypes'
 import ModelName from '@/types/modelName'
-import { PaginatedArgs } from '@/types/prismaModel'
+import { IncludeOptions, PaginatedArgs } from '@/types/prismaModel'
 
 import getModel from './getModel'
 import isModelName from './isModelName'
@@ -87,6 +87,31 @@ export const dataService = {
     } catch (error) {
       throw new Error(
         `Error al eliminar el elemento: ${(error as Error).message}`,
+      )
+    }
+  },
+
+  async findFirst<T extends keyof ModelTypes>(
+    modelName: T,
+    findArgs?: {
+      where?: {
+        OR?: {
+          [field in keyof ModelTypes[T]]?: ModelTypes[T][field]
+        }[]
+      }
+      include?: IncludeOptions
+    },
+  ): Promise<ModelTypes[T] | null> {
+    if (!isModelName(modelName)) {
+      throw new Error(`Modelo ${String(modelName)} no encontrado`)
+    }
+
+    try {
+      const model = getModel(modelName)
+      return await model.findFirst(findArgs)
+    } catch (error) {
+      throw new Error(
+        `Error al buscar el primer elemento: ${(error as Error).message}`,
       )
     }
   },

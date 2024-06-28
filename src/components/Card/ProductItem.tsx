@@ -7,7 +7,7 @@ interface Props {
 }
 const ProductItem: React.FC<Props> = ({ src, name }) => {
   return (
-    <div className="w-full h-80 flex flex-col items-center justify-center bg-sky-100 rounded-2xl gap-4">
+    <div className="w-full h-80 flex flex-col items-center justify-center bg-emerald-100 rounded-2xl gap-4">
       <div className="w-full h-full bg-white overflow-hidden rounded-t-2xl">
         <MainImage image={src} />
       </div>
@@ -21,7 +21,7 @@ const ProductItem: React.FC<Props> = ({ src, name }) => {
         </div>
         <div className="flex justify-between items-center pb-2">
           <h2 className="font-bold text-xl">500 ⭐DP</h2>
-          <Button title="Añadir" />
+          <Button variant="text" title="Añadir" />
         </div>
       </div>
     </div>

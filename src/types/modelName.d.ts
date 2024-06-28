@@ -8,5 +8,6 @@ type ModelName =
   | 'notification'
   | 'badge'
   | 'category'
+  | 'userBadge'
 
 export default ModelName

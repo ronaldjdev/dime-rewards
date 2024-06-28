@@ -9,9 +9,9 @@ import ButtonCircle from '@/components/Button/ButtonCircle'
 
 const Login: React.FC = () => {
   return (
-    <div className="w-full h-full flex flex-col items-center py-10 px-28 gap-4 bg-sky-950">
+    <div className="w-full h-full flex flex-col items-center py-10 px-28 gap-4 bg-slate-100">
       <Brand />
-      <div className="w-full h-full flex overflow-hidden rounded-2xl">
+      <div className="w-full h-full flex overflow-hidden rounded-2xl shadow">
         <div className="w-1/2 h-full bg-black relative flex justify-start items-center">
           <img
             src="https://res.cloudinary.com/dcekvcyvf/image/upload/v1719424243/ztjp3gxfl24bz6ynd1ub.svg"

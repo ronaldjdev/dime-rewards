@@ -11,6 +11,7 @@ interface ModelTypes {
   notification: Prisma.NotificationCreateInput | Prisma.NotificationUpdateInput
   badge: Prisma.BadgeCreateInput | Prisma.BadgeUpdateInput
   category: Prisma.CategoryCreateInput | Prisma.CategoryUpdateInput
+  userBadge: Prisma.UserBadgeCreateInput | Prisma.UserBadgeUpdateInput
 }
 
 export default ModelTypes
