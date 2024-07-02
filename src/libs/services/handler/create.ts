@@ -78,8 +78,19 @@ export default async function handler(
 
      const hashedPassword = await bcrypt.hash(passwordToHash, 10)
      reqData.password = hashedPassword
+
+     // Crear el registro en la base de datos
+     const createdRecord = await dataService.create(model, reqData)
+
+     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     const {password:_, ...data} = createdRecord
+     return res.status(201).json({
+       message: messageCRUD.success.create,
+       data,
+     })
    }
 
+    
     // Crear el registro en la base de datos
     const createdRecord = await dataService.create(model, reqData)
 

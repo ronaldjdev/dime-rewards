@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client'
 
 import Link from 'next/link'
+import {useRouter} from 'next/navigation'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { GoArrowLeft } from 'react-icons/go'
 
@@ -24,7 +26,10 @@ const Register: React.FC = () => {
     formState: { errors },
   } = useForm<FormData>()
 
+  const router = useRouter()
+  
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { confirmPassword, ...formData } = data
     const res = await fetch('/api/user', {
       method: 'POST',
@@ -33,10 +38,10 @@ const Register: React.FC = () => {
         'Content-type': 'application/json'
       }
     })
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const resJSON = await res.json()
+    if (res.ok){
+      router.push('/auth/login')
+    }
 
-    console.log(resJSON)
   }
 
   const password = watch('password')

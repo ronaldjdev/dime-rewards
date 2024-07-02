@@ -3,7 +3,7 @@ import Link from 'next/link'
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href: string
   icon: JSX.Element
-  className: string
+  className?: string
 }
 
 const ButtonCircle: React.FC<Props> = ({
