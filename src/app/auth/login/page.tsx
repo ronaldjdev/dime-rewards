@@ -1,13 +1,48 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+"use client"
+
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { GoArrowLeft } from 'react-icons/go'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { signIn } from 'next-auth/react'
 
 import { Brand } from '@/components/Button/Brand'
 import { Button } from '@/components/Button/Button'
 import SimpleHeader from '@/components/Title/SimpleHeader'
-import Input from '@/components/Input'
 import ButtonCircle from '@/components/Button/ButtonCircle'
 
+interface FormData {
+  email: string
+  password: string
+}
+
 const Login: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>()
+
+  const router = useRouter()
+
+  const onSubmit: SubmitHandler<FormData> = async data => {
+    console.log(data)
+    const res = await signIn('credentials', {
+      email: data.email,
+      password: data.password,
+      redirect: false
+    })
+ console.log(res)
+    if (res && res.error) { 
+      alert(res.error)
+    } else {
+       router.push('/')
+    }
+
+
+  }
+
   return (
     <div className="w-full h-full flex flex-col items-center py-10 px-28 gap-4 bg-slate-100">
       <Brand />
@@ -26,24 +61,47 @@ const Login: React.FC = () => {
         </div>
         <div className="bg-white h-full justify-center p-8 mb-4 flex flex-col w-1/2">
           <SimpleHeader title="Iniciar sesión" />
-          <form action="" method="post">
+          <form action="" method="post" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
-              <Input
-                label="Correo Electronico"
-                name="email"
-                placeholder="Ingrese su correo electronico..."
+              <label
+                className="block text-grey-darker text-sm font-bold mb-2"
+                htmlFor="#email"
+              >
+                Correo electronico <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="email"
+                type="email"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="jhon-doe@wepago.com"
+                {...register('email', { required: 'Este campo es requerido' })}
               />
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
             </div>
             <div className="mb-6">
-              <Input
-                label="Contraseña"
-                name="password"
+              <label
+                className="block text-grey-darker text-sm font-bold mb-2"
+                htmlFor="#password"
+              >
+                Contraseña <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="password"
                 type="password"
-                placeholder="*********"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="******"
+                {...register('password', {
+                  required: 'Este campo es requerido',
+                })}
               />
+              {errors.password && (
+                <p className="text-red-500">{errors.password.message}</p>
+              )}
             </div>
             <div className="flex items-center justify-between">
-              <Button type="submit" href="/" title="Acceder" />
+              <Button type="submit" forms title="Acceder" />
               <Link
                 className="inline-block align-baseline text-sm text-blue hover:text-blue-800"
                 href="/auth/reset_password"

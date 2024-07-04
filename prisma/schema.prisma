@@ -101,6 +101,7 @@ model Product {
   id          String   @id @default(uuid())
   name        String
   brand       String
+  score       Float
   categoryId  String?
   description String
   price       Float
@@ -108,11 +109,9 @@ model Product {
   image       String
   createAt    DateTime @default(now())
   updateAt    DateTime @updatedAt
-
   // Relación con User creador del producto
   creator   User   @relation(fields: [creatorId], references: [id])
   creatorId String
-
   // Relación con Category
   category  Category? @relation(fields: [categoryId], references: [id])
 }

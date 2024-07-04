@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={poppins.className}>
         <main className="h-full flex flex-col items-center justify-center">
           {children}
