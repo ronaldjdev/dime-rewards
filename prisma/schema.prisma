@@ -27,7 +27,7 @@ model User {
   address        String?
   city           String?
   phone          String?
-  profilePicture String?
+  avatar         String?
 
   // Relación con Social Network
   socialMedia SocialMedia[]
