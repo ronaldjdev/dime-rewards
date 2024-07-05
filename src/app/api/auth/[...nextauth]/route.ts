@@ -1,10 +1,11 @@
-import NextAuth from 'next-auth'
+import { NextApiHandler } from 'next'
+import NextAuth, { NextAuthOptions } from 'next-auth'
 import CredentialsProviders from 'next-auth/providers/credentials'
 import { compare } from 'bcrypt' // Asegúrate de tener bcryptjs instalado y configurado
 
 import prisma from '@/libs/db'
 
-const authOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProviders({
       name: 'Credentials',
@@ -17,13 +18,7 @@ const authOptions = {
         password: { label: 'Contraseña', type: 'password' },
       },
       async authorize(credentials, _req) {
-        if (!credentials)
-          throw new Error(
-            JSON.stringify({
-              message: 'Credenciales incorrectas',
-              status: false,
-            }),
-          )
+        if (!credentials) throw new Error('Credenciales incorrectas')
 
         const { email, password } = credentials
 
@@ -31,36 +26,24 @@ const authOptions = {
           where: { email },
         })
 
-        if (!userFound)
-          throw new Error(
-            JSON.stringify({
-              message: 'Usuario no funciona',
-              status: false,
-            }),
-          )
+        if (!userFound) throw new Error('Usuario no funciona')
 
         const isValidPassword = await compare(password, userFound.password)
 
-        if (!isValidPassword)
-          throw new Error(
-            JSON.stringify({
-              message: 'Contraseña no funciona',
-              status: false,
-            }),
-          )
+        if (!isValidPassword) throw new Error('Contraseña no funciona')
         console.log(userFound)
         // Si todo es correcto, retorna el usuario
         return userFound
       },
     }),
   ],
-      pages :{
-        signIn:"/auth/login"
-      },
+  pages: {
+    signIn: '/auth/login',
+  },
 
-  secret: process.env.NEXTAUTH_SECRET || 'some-generated-secret',
+  secret: process.env.NEXTAUTH_SECRET,
 }
 
-const handler = NextAuth(authOptions)
+const handler: NextApiHandler = (req, res) => NextAuth(req, res, authOptions)
 
 export { handler as GET, handler as POST }

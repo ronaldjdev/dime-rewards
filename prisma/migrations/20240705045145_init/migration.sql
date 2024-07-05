@@ -3,13 +3,13 @@ CREATE TABLE "User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
-    "identification" TEXT NOT NULL,
+    "identification" TEXT,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "address" TEXT,
     "city" TEXT,
     "phone" TEXT,
-    "profilePicture" TEXT,
+    "avatar" TEXT,
     "createAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updateAt" DATETIME NOT NULL
 );
@@ -58,6 +58,7 @@ CREATE TABLE "Product" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "brand" TEXT NOT NULL,
+    "score" REAL NOT NULL,
     "categoryId" TEXT,
     "description" TEXT NOT NULL,
     "price" REAL NOT NULL,
